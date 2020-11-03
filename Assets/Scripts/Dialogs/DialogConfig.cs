@@ -21,3 +21,10 @@ public class GameOverDialogParam : DialogParam
     public int valueKill;
     public int valueCoin;
 }
+
+public class PauseDialogParam : DialogParam
+{
+    public int valueKill;
+    public int valueCoin;
+    public float percentHP;    
+}
