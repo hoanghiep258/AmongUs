@@ -83,7 +83,11 @@ public class DataAPIManager : SingletonMono<DataAPIManager>
     public string[] GetLsBoughtColor()
     {
         string lsBoughtColor = dataController.GetPlayerInfo().lsBoughtColor;
-        return lsBoughtColor.Split(',');
+        if (string.IsNullOrEmpty(lsBoughtColor))
+        {
+            return null;
+        }
+        return lsBoughtColor.Split('-');
     }
 
     public void AddColor(string id)
@@ -99,7 +103,11 @@ public class DataAPIManager : SingletonMono<DataAPIManager>
     public string[] GetLsBoughtHat()
     {
         string lsBoughtHat = dataController.GetPlayerInfo().lsBoughtHat;
-        return lsBoughtHat.Split(',');
+        if (string.IsNullOrEmpty(lsBoughtHat))
+        {
+            return null;
+        }
+        return lsBoughtHat.Split('-');
     }
 
 
@@ -116,7 +124,11 @@ public class DataAPIManager : SingletonMono<DataAPIManager>
     public string[] GetLsBoughtSkin()
     {
         string lsBoughtSkin = dataController.GetPlayerInfo().lsBoughtSkin;
-        return lsBoughtSkin.Split(',');
+        if (string.IsNullOrEmpty(lsBoughtSkin))
+        {
+            return null;
+        }
+        return lsBoughtSkin.Split('-');
     }
 
     public void AddSkin(string id)
@@ -132,7 +144,11 @@ public class DataAPIManager : SingletonMono<DataAPIManager>
     public string[] GetLsBoughtPet()
     {
         string lsBoughtPet = dataController.GetPlayerInfo().lsBoughtPet;
-        return lsBoughtPet.Split(',');
+        if (string.IsNullOrEmpty(lsBoughtPet))
+        {
+            return null;
+        }
+        return lsBoughtPet.Split('-');
     }
 
     public void AddPet(string id)

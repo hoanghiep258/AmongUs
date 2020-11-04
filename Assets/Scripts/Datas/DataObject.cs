@@ -44,10 +44,10 @@ public class PlayerInfo
         this.pet = 0;
         this.skin = 0;
 
-        this.lsBoughtColor = string.Empty;
-        this.lsBoughtHat = string.Empty;
-        this.lsBoughtSkin = string.Empty;
-        this.lsBoughtPet = string.Empty;
+        this.lsBoughtColor = "0-1-2-3";
+        this.lsBoughtHat = "0";
+        this.lsBoughtSkin = "0";
+        this.lsBoughtPet = "0";
 
 
     }

@@ -24,6 +24,16 @@ public class HomeView : BaseView
     [SerializeField]
     private List<GameObject> lsPnlShops = new List<GameObject>();
 
+    [Header("------------------------Item------------------------")]
+    [SerializeField]
+    private List<ShopItem> lsColorItems = new List<ShopItem>();
+    [SerializeField]
+    private List<ShopItem> lsHatItems = new List<ShopItem>();
+    [SerializeField]
+    private List<ShopItem> lsSkinItems = new List<ShopItem>();
+    [SerializeField]
+    private List<ShopItem> lsPetItems = new List<ShopItem>();
+
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
         inpName.text = DataAPIManager.Instance.GetName();
@@ -34,6 +44,48 @@ public class HomeView : BaseView
         indexPet = DataAPIManager.Instance.GetPet();
 
         OnBtnClick(0);
+
+        string[] lsBoughtColor = DataAPIManager.Instance.GetLsBoughtColor();
+        if (lsBoughtColor != null)
+        {
+            for (int i = 0; i < lsBoughtColor.Length; i++)
+            {
+
+                int index = int.Parse(lsBoughtColor[i]);
+                lsColorItems[index].OnSetup(true);
+            }
+        }
+        
+
+        string[] lsBoughtHat = DataAPIManager.Instance.GetLsBoughtHat();
+        if (lsBoughtHat != null)
+        {
+            for (int i = 0; i < lsBoughtHat.Length; i++)
+            {
+                int index = int.Parse(lsBoughtHat[i]);
+                lsHatItems[index].OnSetup(true);
+            }
+        }
+
+        string[] lsBoughtSkin = DataAPIManager.Instance.GetLsBoughtSkin();
+        if (lsBoughtSkin != null)
+        {
+            for (int i = 0; i < lsBoughtSkin.Length; i++)
+            {
+                int index = int.Parse(lsBoughtSkin[i]);
+                lsSkinItems[index].OnSetup(true);
+            }
+        }
+
+        string[] lsBoughtPet = DataAPIManager.Instance.GetLsBoughtPet();
+        if (lsBoughtPet != null)
+        {
+            for (int i = 0; i < lsBoughtPet.Length; i++)
+            {
+                int index = int.Parse(lsBoughtPet[i]);
+                lsPetItems[index].OnSetup(true);
+            }
+        }
         base.OnSetUp(param, callback);
     }
     
