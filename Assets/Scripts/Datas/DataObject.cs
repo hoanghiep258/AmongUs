@@ -22,17 +22,33 @@ public class PlayerData : DataObject
 public class PlayerInfo
 {
     public string name;
+    public int coin;
+
     public int color;
     public int hat;
     public int skin;
     public int pet;
 
+    public string lsBoughtColor;
+    public string lsBoughtHat;
+    public string lsBoughtSkin;
+    public string lsBoughtPet;
+    
     public PlayerInfo()
     {
         this.name = "Player";
+        this.coin = 0;
+
         this.color = 0;
         this.hat = 0;
         this.pet = 0;
         this.skin = 0;
+
+        this.lsBoughtColor = string.Empty;
+        this.lsBoughtHat = string.Empty;
+        this.lsBoughtSkin = string.Empty;
+        this.lsBoughtPet = string.Empty;
+
+
     }
 }

@@ -42,6 +42,16 @@ public class DataController : MonoBehaviour
         return (string)databaseLocal.ReadData(PathData.name);
     }
 
+    public void SetCoin(int curCoin)
+    {
+        databaseLocal.UpdateData<int>(PathData.name, curCoin);
+    }
+
+    public int GetCoin()
+    {
+        return (int)databaseLocal.ReadData(PathData.coin);
+    }
+
     public void SetHat(int index)
     {
         databaseLocal.UpdateData<string>(PathData.hat, index);
@@ -83,6 +93,30 @@ public class DataController : MonoBehaviour
     {
         return (int)databaseLocal.ReadData(PathData.pet);
     }
+
+    public void UpdateLsBoughtColor(string content)
+    {
+        databaseLocal.UpdateData<string>(PathData.lsBoughtColor, content);
+    }
+
+
+    public void UpdateLsBoughtHat(string content)
+    {
+        databaseLocal.UpdateData<string>(PathData.lsBoughtHat, content);
+    }
+
+
+    public void UpdateLsBoughtSkin(string content)
+    {
+        databaseLocal.UpdateData<string>(PathData.lsBoughtSkin, content);
+    }
+
+
+    public void UpdateLsBoughtPet(string content)
+    {
+        databaseLocal.UpdateData<string>(PathData.lsBoughtPet, content);
+    }
+
 }
 
 #if UNITY_EDITOR

@@ -25,6 +25,19 @@ public class DataAPIManager : SingletonMono<DataAPIManager>
         return dataController.GetName();
     }
 
+    public void AddCoin(int valueCoin)
+    {
+        int curCoin = dataController.GetCoin();
+        curCoin += valueCoin;
+        dataController.SetCoin(curCoin);
+    }
+
+    public int GetCoin()
+    {
+        return dataController.GetCoin();
+    }
+
+
     public void SetColor(int value)
     {
         dataController.SetColor(value);
@@ -65,6 +78,71 @@ public class DataAPIManager : SingletonMono<DataAPIManager>
     public int GetPet()
     {
         return dataController.GetPet();
+    }
+
+    public string[] GetLsBoughtColor()
+    {
+        string lsBoughtColor = dataController.GetPlayerInfo().lsBoughtColor;
+        return lsBoughtColor.Split(',');
+    }
+
+    public void AddColor(string id)
+    {
+        string lsBoughtColor = dataController.GetPlayerInfo().lsBoughtColor;
+        if (!lsBoughtColor.Contains(id))
+        {
+            lsBoughtColor += "-" + id;
+            dataController.UpdateLsBoughtColor(lsBoughtColor);
+        }        
+    }
+
+    public string[] GetLsBoughtHat()
+    {
+        string lsBoughtHat = dataController.GetPlayerInfo().lsBoughtHat;
+        return lsBoughtHat.Split(',');
+    }
+
+
+    public void AddHat(string id)
+    {
+        string lsBoughtHat = dataController.GetPlayerInfo().lsBoughtHat;
+        if (!lsBoughtHat.Contains(id))
+        {
+            lsBoughtHat += "-" + id;
+            dataController.UpdateLsBoughtHat(lsBoughtHat);
+        }
+    }
+
+    public string[] GetLsBoughtSkin()
+    {
+        string lsBoughtSkin = dataController.GetPlayerInfo().lsBoughtSkin;
+        return lsBoughtSkin.Split(',');
+    }
+
+    public void AddSkin(string id)
+    {
+        string lsBoughtSkin = dataController.GetPlayerInfo().lsBoughtSkin;
+        if (!lsBoughtSkin.Contains(id))
+        {
+            lsBoughtSkin += "-" + id;
+            dataController.UpdateLsBoughtSkin(lsBoughtSkin);
+        }
+    }
+
+    public string[] GetLsBoughtPet()
+    {
+        string lsBoughtPet = dataController.GetPlayerInfo().lsBoughtPet;
+        return lsBoughtPet.Split(',');
+    }
+
+    public void AddPet(string id)
+    {
+        string lsBoughtPet = dataController.GetPlayerInfo().lsBoughtPet;
+        if (!lsBoughtPet.Contains(id))
+        {
+            lsBoughtPet += "-" + id;
+            dataController.UpdateLsBoughtPet(lsBoughtPet);
+        }
     }
 }
 
