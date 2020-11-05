@@ -17,6 +17,8 @@ public class HomeView : BaseView
 
     [SerializeField]
     private Image imgChar;
+    [SerializeField]
+    private Image imgPet;
 
     [SerializeField]
     private List<Color> lsColors = new List<Color>();
@@ -52,13 +54,6 @@ public class HomeView : BaseView
 
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
-        inpName.text = DataAPIManager.Instance.GetName();
-
-        indexColor = DataAPIManager.Instance.GetColor();
-        indexHat = DataAPIManager.Instance.GetHat();
-        indexSkin = DataAPIManager.Instance.GetSkin();
-        indexPet = DataAPIManager.Instance.GetPet();
-
         OnBtnClick(0);
 
         string[] lsBoughtColor = DataAPIManager.Instance.GetLsBoughtColor();
@@ -102,6 +97,18 @@ public class HomeView : BaseView
                 lsPetItems[index].OnSetup(true);
             }
         }
+        inpName.text = DataAPIManager.Instance.GetName();
+
+        indexColor = DataAPIManager.Instance.GetColor();
+        indexHat = DataAPIManager.Instance.GetHat();
+        indexSkin = DataAPIManager.Instance.GetSkin();
+        indexPet = DataAPIManager.Instance.GetPet();
+
+        lsColorItems[indexColor].OnClick();
+        lsHatItems[indexHat].OnClick();
+        lsSkinItems[indexSkin].OnClick();
+        lsPetItems[indexPet].OnClick();
+
         base.OnSetUp(param, callback);
     }
     
@@ -152,6 +159,7 @@ public class HomeView : BaseView
             case 2:
                 indexSkin = indexOfList;
                 imgChar.color = Color.white;
+                imgChar.sprite = lsSkins[indexOfList - 1];              
                 for (int i = 0; i < lsSkinItems.Count; i++)
                 {
                     lsSkinItems[i].UnchooseItem();
@@ -163,6 +171,7 @@ public class HomeView : BaseView
                 {
                     lsPetItems[i].UnchooseItem();
                 }
+                imgPet.sprite = lsPets[indexPet - 1];
                 break;
         }
     }

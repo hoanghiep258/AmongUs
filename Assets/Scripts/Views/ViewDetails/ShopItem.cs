@@ -19,7 +19,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField]
     private int indexItem;
 
-    private void Start()
+    private void Awake()
     {
         indexOfList = int.Parse(transform.name);
 
@@ -79,16 +79,16 @@ public class ShopItem : MonoBehaviour
         switch (indexItem)
         {
             case 0:
-                DataAPIManager.Instance.AddColor(indexOfList.ToString());
+                DataAPIManager.Instance.AddColor((indexOfList - 1).ToString());
                 break;
             case 1:
-                DataAPIManager.Instance.AddHat(indexOfList.ToString());
+                DataAPIManager.Instance.AddHat((indexOfList - 1).ToString());
                 break;
             case 2:
-                DataAPIManager.Instance.AddSkin(indexOfList.ToString());
+                DataAPIManager.Instance.AddSkin((indexOfList - 1).ToString());
                 break;
             case 3:
-                DataAPIManager.Instance.AddPet(indexOfList.ToString());
+                DataAPIManager.Instance.AddPet((indexOfList - 1).ToString());
                 break;
         }
         goIsSelected.SetActive(true);
