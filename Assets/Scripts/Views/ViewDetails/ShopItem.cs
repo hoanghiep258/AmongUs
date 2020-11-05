@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
@@ -28,7 +29,11 @@ public class ShopItem : MonoBehaviour
         {
             transform.Find("imgLock").Find("imgFrame").Find("txtCoin").GetComponent<TextMeshProUGUI>().text = price.ToString();
         }
-       
+
+        transform.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            OnClick();
+        });
     }
 
     public void OnSetup(bool isBought)
@@ -41,6 +46,9 @@ public class ShopItem : MonoBehaviour
     {
         if (isBought)
         {
+            HomeView homeView = (HomeView)ViewManager.Instance.currentView;
+            homeView.OnSelectItem(indexItem, indexOfList);
+
             goIsSelected.SetActive(true);
             return;
         }
@@ -84,5 +92,10 @@ public class ShopItem : MonoBehaviour
                 break;
         }
         goIsSelected.SetActive(true);
+    }
+
+    public void UnchooseItem()
+    {
+        goIsSelected.SetActive(false);
     }
 }

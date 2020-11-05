@@ -12,4 +12,14 @@ public class GameplayView : BaseView
     {
 
     }
+
+    public void OnPauseGame()
+    {
+        DialogManager.Instance.ShowDialog(DialogIndex.PauseDialog, new PauseDialogParam
+        {
+            percentHP = 90,
+            valueCoin = 0,
+            valueKill = 0
+        });
+    }
 }

@@ -1317,7 +1317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7152037791356546434
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1593,7 +1593,7 @@ MonoBehaviour:
   txtKill: {fileID: 9211532732685981856}
   txtCoin: {fileID: 4902081656363285748}
   sliderHP: {fileID: 7480469954394017989}
-  imgChar: {fileID: 0}
+  imgChar: {fileID: 4975803815397882170}
 --- !u!1 &8216560913803565521
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ public class PauseDialog : BaseDialog
     public override void OnSetUp(DialogParam param = null)
     {
         PauseDialogParam pauseDialogParam = (PauseDialogParam)param;
-        txtKill.text = pauseDialogParam.valueKill.ToString();
+        txtKill.text = pauseDialogParam.valueKill.ToString() + " IMPOSTOR";
         txtCoin.text = pauseDialogParam.valueCoin.ToString();
         sliderHP.value = pauseDialogParam.percentHP;
 
@@ -46,6 +46,7 @@ public class PauseDialog : BaseDialog
     public void OnGotoHome()
     {
         Time.timeScale = 1;
+        DialogManager.Instance.HideDialog(this);
         ViewManager.Instance.SwitchView(ViewIndex.HomeView);
     }
 
@@ -55,5 +56,6 @@ public class PauseDialog : BaseDialog
         // Restart game
         GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
         gameplayView.OnRestartGame();
+        DialogManager.Instance.HideDialog(this);
     }
 }

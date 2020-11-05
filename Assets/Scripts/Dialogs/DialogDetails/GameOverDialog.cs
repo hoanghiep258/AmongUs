@@ -28,6 +28,8 @@ public class GameOverDialog : BaseDialog
     public void OnGotoHome()
     {
         ViewManager.Instance.SwitchView(ViewIndex.HomeView);
+        DialogManager.Instance.HideDialog(this);
+
     }
 
     public void OnRestartGame()
@@ -35,5 +37,6 @@ public class GameOverDialog : BaseDialog
         // Restart game
         GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
         gameplayView.OnRestartGame();
+        DialogManager.Instance.HideDialog(this);
     }
 }

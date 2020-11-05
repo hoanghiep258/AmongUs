@@ -1,6 +1,6 @@
 ﻿public class DialogConfig
 {
-    public static DialogIndex[] dialogIndices = { DialogIndex.InfoDialog, DialogIndex.UpgradeDialog, DialogIndex.GameOverDialog };
+    public static DialogIndex[] dialogIndices = { DialogIndex.InfoDialog, DialogIndex.UpgradeDialog, DialogIndex.GameOverDialog, DialogIndex.PauseDialog };
 }
 
 public enum DialogIndex

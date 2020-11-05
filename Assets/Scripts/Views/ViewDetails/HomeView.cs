@@ -16,6 +16,22 @@ public class HomeView : BaseView
     private int indexPet;
 
     [SerializeField]
+    private Image imgChar;
+
+    [SerializeField]
+    private List<Color> lsColors = new List<Color>();
+
+    [SerializeField]
+    private List<Sprite> lsHats = new List<Sprite>();
+    [SerializeField]
+    private List<Sprite> lsSkins = new List<Sprite>();
+    [SerializeField]
+    private List<Sprite> lsPets = new List<Sprite>();
+    
+
+
+    [Header("------------------------Button------------------------")]
+    [SerializeField]
     private List<Sprite> lsBtnSpriteOns = new List<Sprite>();
     [SerializeField]
     private List<Sprite> lsBtnSpriteOffs = new List<Sprite>();
@@ -112,5 +128,42 @@ public class HomeView : BaseView
 
         lsImageBtnShops[index].sprite = lsBtnSpriteOns[index];
         lsPnlShops[index].SetActive(true);
+    }
+
+    public void OnSelectItem(int indexItem, int indexOfList)
+    {
+        switch (indexItem)
+        {
+            case 0:
+                indexColor = indexOfList;
+                for (int i = 0; i < lsColorItems.Count; i++)
+                {
+                    lsColorItems[i].UnchooseItem();
+                }
+                imgChar.color = lsColors[indexOfList - 1];
+                break;
+            case 1:
+                indexHat = indexOfList;
+                for (int i = 0; i < lsHatItems.Count; i++)
+                {
+                    lsHatItems[i].UnchooseItem();
+                }
+                break;
+            case 2:
+                indexSkin = indexOfList;
+                imgChar.color = Color.white;
+                for (int i = 0; i < lsSkinItems.Count; i++)
+                {
+                    lsSkinItems[i].UnchooseItem();
+                }
+                break;
+            case 3:
+                indexPet = indexOfList;
+                for (int i = 0; i < lsPetItems.Count; i++)
+                {
+                    lsPetItems[i].UnchooseItem();
+                }
+                break;
+        }
     }
 }
