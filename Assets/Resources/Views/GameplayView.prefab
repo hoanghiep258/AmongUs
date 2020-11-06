@@ -33,7 +33,7 @@ RectTransform:
   - {fileID: 1041175475420174477}
   - {fileID: 2524672727382889399}
   m_Father: {fileID: 8507455059567726365}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -118,7 +118,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3273048337237006525}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7835657632804542335}
+        m_MethodName: OnClickSkill
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &676358696986195484
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +163,7 @@ RectTransform:
   - {fileID: 5276495419955675162}
   - {fileID: 1642560887315764894}
   m_Father: {fileID: 8507455059567726365}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -237,7 +248,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6727455707183298214}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7835657632804542335}
+        m_MethodName: OnClickSkill
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1472416349200117030
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +272,7 @@ GameObject:
   - component: {fileID: 5479526854249808350}
   - component: {fileID: 8528406261281716216}
   m_Layer: 0
-  m_Name: txtCount
+  m_Name: txtCountKnife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,7 +593,7 @@ GameObject:
   - component: {fileID: 1269052552844304819}
   - component: {fileID: 2196915966610886796}
   m_Layer: 0
-  m_Name: txtCount
+  m_Name: txtCountGernade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -727,7 +749,7 @@ GameObject:
   - component: {fileID: 6646850059482573568}
   - component: {fileID: 1942623302424637348}
   m_Layer: 0
-  m_Name: txtCount
+  m_Name: txtCountHammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1123,7 +1145,7 @@ RectTransform:
   - {fileID: 459232241820570464}
   - {fileID: 790815465282049562}
   m_Father: {fileID: 8507455059567726365}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1208,7 +1230,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1069669853763715114}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7835657632804542335}
+        m_MethodName: OnClickSkill
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3635088457944945360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1327,7 @@ GameObject:
   - component: {fileID: 7626042371908317199}
   - component: {fileID: 5136945241237850628}
   m_Layer: 0
-  m_Name: txtCount
+  m_Name: txtCountGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1746,7 +1779,7 @@ RectTransform:
   - {fileID: 1113408271053982058}
   - {fileID: 5185722101432654839}
   m_Father: {fileID: 8507455059567726365}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1831,7 +1864,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2461632263327570753}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7835657632804542335}
+        m_MethodName: OnClickSkill
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7450094444664067898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,10 +2129,10 @@ RectTransform:
   m_Children:
   - {fileID: 6104965622253075122}
   - {fileID: 5538012360045470438}
-  - {fileID: 5086411069537202183}
   - {fileID: 2708444152041483553}
-  - {fileID: 2421173320472008646}
   - {fileID: 2938834729648221291}
+  - {fileID: 5086411069537202183}
+  - {fileID: 2421173320472008646}
   - {fileID: 6192729821752495205}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -2147,7 +2191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewIndex: 3
-  txtSkillKnife: {fileID: 8528406261281716216}
-  txtSkillHammer: {fileID: 1942623302424637348}
-  txtSkillGun: {fileID: 5136945241237850628}
-  txtSkillGernade: {fileID: 2196915966610886796}
+  lsTxtSkillCounts:
+  - {fileID: 8528406261281716216}
+  - {fileID: 1942623302424637348}
+  - {fileID: 5136945241237850628}
+  - {fileID: 2196915966610886796}
