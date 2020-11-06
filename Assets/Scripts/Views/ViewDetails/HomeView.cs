@@ -18,6 +18,8 @@ public class HomeView : BaseView
     [SerializeField]
     private Image imgChar;
     [SerializeField]
+    private Sprite defaultSpriteChar;
+    [SerializeField]
     private Image imgPet;
 
     [SerializeField]
@@ -135,6 +137,10 @@ public class HomeView : BaseView
 
         lsImageBtnShops[index].sprite = lsBtnSpriteOns[index];
         lsPnlShops[index].SetActive(true);
+        if (index == 0)
+        {
+            imgChar.sprite = defaultSpriteChar;
+        }
     }
 
     public void OnSelectItem(int indexItem, int indexOfList)
@@ -147,7 +153,7 @@ public class HomeView : BaseView
                 {
                     lsColorItems[i].UnchooseItem();
                 }
-                imgChar.color = lsColors[indexOfList - 1];
+                imgChar.color = lsColors[indexOfList - 1];               
                 break;
             case 1:
                 indexHat = indexOfList;
