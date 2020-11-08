@@ -43,6 +43,7 @@ public class HomeView : BaseView
     private List<Image> lsImageBtnShops = new List<Image>();
     [SerializeField]
     private List<GameObject> lsPnlShops = new List<GameObject>();
+    private int curIndexBtn;
 
     [Header("------------------------Item------------------------")]
     [SerializeField]
@@ -113,14 +114,21 @@ public class HomeView : BaseView
 
         base.OnSetUp(param, callback);
     }
-    
+
     public void OnStartGamePlay()
     {
         DataAPIManager.Instance.SetName(inpName.text);
-
-        DataAPIManager.Instance.SetColor(indexColor);
-        DataAPIManager.Instance.SetHat(indexHat);
-        DataAPIManager.Instance.SetSkin(indexSkin);
+        if (curIndexBtn == 0)
+        {
+            DataAPIManager.Instance.SetColor(indexColor);
+            DataAPIManager.Instance.SetSkin(-1);
+        }       
+        else
+        {
+            DataAPIManager.Instance.SetColor(-1);
+            DataAPIManager.Instance.SetSkin(indexSkin);
+        }
+        DataAPIManager.Instance.SetHat(indexHat);       
         DataAPIManager.Instance.SetPet(indexPet);
         
         // Gameplay view
@@ -141,6 +149,7 @@ public class HomeView : BaseView
         {
             imgChar.sprite = defaultSpriteChar;
         }
+        curIndexBtn = index;
     }
 
     public void OnSelectItem(int indexItem, int indexOfList)

@@ -20,6 +20,14 @@ public class GameplayView : BaseView
             lsSkillCounts.Add(lsDefaultSkillCounts[i]);
             lsTxtSkillCounts[i].text = lsDefaultSkillCounts[i].ToString();
         }
+        if (DataAPIManager.Instance.GetColor() <= 0)
+        {
+            MissionControl.instance.InitMission(true);
+        }
+        else
+        {
+            MissionControl.instance.InitMission(false);
+        }
     }
 
     public void OnRestartGame()
