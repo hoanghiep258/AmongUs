@@ -107,8 +107,17 @@ public class HomeView : BaseView
         indexSkin = DataAPIManager.Instance.GetSkin();
         indexPet = DataAPIManager.Instance.GetPet();
 
+        if (indexColor < 0)
+        {
+            indexColor = 0;
+        }
         lsColorItems[indexColor].OnClick();
         lsHatItems[indexHat].OnClick();
+
+        if (indexSkin < 0)
+        {
+            indexSkin = 0;
+        }
         lsSkinItems[indexSkin].OnClick();
         lsPetItems[indexPet].OnClick();
 

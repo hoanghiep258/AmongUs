@@ -8,9 +8,11 @@ public class CharacterMove : MonoBehaviour
     public AnimatorOverrideController animatorOverrideController;
     //private WeaponBehaviour weapon;
     public LayerMask layerObstacleMask;
+    [SerializeField]
+    private float speed;
     private void Awake()
     {
-        dataBinding.Setup(animatorOverrideController);
+        //dataBinding.Setup(animatorOverrideController);
         //GetComponent<WeaponControl>().OnChangeGunHandle += ChangeGunHandle;
     }
     // Use this for initialization
@@ -39,11 +41,11 @@ public class CharacterMove : MonoBehaviour
         {
 
             //1. xoay theo huong input
-            float angle = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
+            //float angle = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
 
-            Quaternion q = Quaternion.Euler(0, 0, angle - 90);
-            transform.localRotation =
-                Quaternion.Slerp(transform.localRotation, q, Time.deltaTime * 10f);
+            //Quaternion q = Quaternion.Euler(0, 0, angle - 90);
+            //transform.localRotation =
+            //    Quaternion.Slerp(transform.localRotation, q, Time.deltaTime * 10f);
             //2. move thoe vector up
             RaycastHit2D hit2D= Physics2D.Raycast(transform.position, transform.up, 1, layerObstacleMask);
             if(hit2D.collider!=null)
@@ -52,7 +54,7 @@ public class CharacterMove : MonoBehaviour
             }
             else
             {
-                transform.Translate(Vector3.up * Time.deltaTime * 1.5f, Space.Self);
+                transform.Translate(dir2 * Time.deltaTime * speed, Space.Self);
 
             }
         }

@@ -27,6 +27,7 @@ public class CharacterHealth : MonoBehaviour {
 
         if (curHP <= 0)
         {
+            GetComponent<CharacterDataBinding>().Dead = true;
             Debug.LogError("Player dead");
         }
     }

@@ -10,6 +10,8 @@ public class GameplayView : BaseView
     private List<int> lsSkillCounts = new List<int>();
     private int[] lsDefaultSkillCounts = { 10, 20, 5, 15 };
 
+    public JoyStick joyStick;
+
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
         base.OnSetUp(param, callback);
@@ -22,11 +24,11 @@ public class GameplayView : BaseView
         }
         if (DataAPIManager.Instance.GetColor() <= 0)
         {
-            MissionControl.instance.InitMission(true);
+            MissionControl.instance.InitMission(false);
         }
         else
         {
-            MissionControl.instance.InitMission(false);
+            MissionControl.instance.InitMission(true);
         }
     }
 

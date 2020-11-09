@@ -17,15 +17,18 @@ public class MissionControl : MonoBehaviour
     {
         instance = this;
         dataModel = GetComponent<MissionData>();
+        player.gameObject.SetActive(false);
     }
 
     public void InitMission(bool isColor = false)
     {
+        Debug.LogError("isColor: " + isColor);
         player.OnSetup(isColor);
+        player.gameObject.SetActive(true);
         GameObject goPlayer = player.gameObject;
         goPlayer.transform.position = ConfigScene.instance.posPlayer.position;
         goPlayer.transform.rotation = Quaternion.identity;
-        goPlayer.transform.localScale = Vector3.one;
+        //goPlayer.transform.localScale = Vector3.one;
         StartCoroutine("LoopCreateEnemy");
     }
 

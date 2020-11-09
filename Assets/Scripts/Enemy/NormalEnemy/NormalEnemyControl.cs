@@ -49,6 +49,7 @@ public class NormalEnemyControl : EnemyControl
 
     public override void OnSystemUpdate()
     {
+        agent.SetDestination(playerTrans.position);
         count_AttackRate += Time.deltaTime;
         base.OnSystemUpdate();
     }

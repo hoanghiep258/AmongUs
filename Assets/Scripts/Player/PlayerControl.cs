@@ -41,6 +41,9 @@ public class PlayerControl : MonoBehaviour
         {
             int indexSkin = DataAPIManager.Instance.GetSkin();
             spriteChar.sprite = lsSkins[indexSkin];
-        }        
+        }
+
+        GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
+        GetComponent<CharacterInput>().joyStick = gameplayView.joyStick;
     }
 }

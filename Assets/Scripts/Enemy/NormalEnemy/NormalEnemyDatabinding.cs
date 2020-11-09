@@ -39,8 +39,8 @@ public class NormalEnemyDatabinding : MonoBehaviour
     void Awake()
     {
         anim = gameObject.GetComponentInChildren<Animator>();
-        AnimKeySpeed = Animator.StringToHash("Speed");
-        AnimKeyAttack = Animator.StringToHash("Attack");
-        AnimKeyDead = Animator.StringToHash("Dead");
+        //AnimKeySpeed = Animator.StringToHash("Speed");
+        //AnimKeyAttack = Animator.StringToHash("Attack");
+        //AnimKeyDead = Animator.StringToHash("Dead");
     }
 }
