@@ -8,7 +8,7 @@ public class MissionControl : MonoBehaviour
     private MissionData dataModel;
 
     private const int valueAppearBoss = 100;
-    private const float timerCreateEnemy = 3;
+    private const float timerCreateEnemy = 1;
 
     public PlayerControl player;
 

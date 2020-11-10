@@ -54,6 +54,8 @@ public class GameplayView : BaseView
 
         lsSkillCounts[index]--;
         lsTxtSkillCounts[index].text = lsSkillCounts[index].ToString();
+        MissionControl.instance.player.GetComponent<WeaponControl>().OnChangeGun(index);
+        OnFire();
     }
 
     public void OnCollectSkill(int index)

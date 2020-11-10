@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandGun : WeaponBehaviour {
+public class Hammer : WeaponBehaviour {
 
     public Transform bulletPrefab;
     public Transform posShoot;
     public Transform aimPos;
     private void Start()
     {
-        Debug.LogError("On start");
-        this.weaponAlgorithm = new HandGunAlgorithm();
+        this.weaponAlgorithm = new HammerAlgorithm();
     }
 
     protected override void Setup()
     {
-        this.weaponAlgorithm = new HandGunAlgorithm();
+        this.weaponAlgorithm = new HammerAlgorithm();
     }
     public void OnShootBullet()
     {

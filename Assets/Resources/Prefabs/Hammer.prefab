@@ -9,14 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5250311807708605747}
-  - component: {fileID: 58553198515954230}
+  - component: {fileID: 2924430179784336698}
+  - component: {fileID: 2581588929958334125}
   m_Layer: 0
-  m_Name: Handgun
+  m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5250311807708605747
 Transform:
   m_ObjectHideFlags: 0
@@ -31,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &58553198515954230
+--- !u!114 &2924430179784336698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,14 +41,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 2582289692711247982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c2591ca13e9478c97b5faf23663e0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 29ae8eb5bc7b35f47aa18088d0aa4c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amoutAmo: 5
-  currentBullet: 5
+  amoutAmo: 10
+  currentBullet: 10
   isFire: 0
   animatorOverrideController: {fileID: 0}
-  bulletPrefab: {fileID: 7589599346543084190, guid: 3e09ceafc2b2543068bf584c23b15b82,
+  bulletPrefab: {fileID: 7589599346543084190, guid: 9f5ef41deb8eac242b86d4f5a4ab428d,
+    type: 3}
+  posShoot: {fileID: 0}
+  aimPos: {fileID: 5250311807708605747}
+--- !u!114 &2581588929958334125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2582289692711247982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407e74f4fb97ef54999cc7664dda5761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amoutAmo: 10
+  currentBullet: 10
+  isFire: 0
+  animatorOverrideController: {fileID: 0}
+  bulletPrefab: {fileID: 7589599346543084190, guid: 2d027740609006e4f9fa3464dc1dce90,
     type: 3}
   posShoot: {fileID: 0}
   aimPos: {fileID: 5250311807708605747}

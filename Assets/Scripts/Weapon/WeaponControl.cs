@@ -7,7 +7,7 @@ public class WeaponControl : MonoBehaviour
 {
     public event ChangeGunHandle OnChangeGunHandle;
     public List<WeaponBehaviour> lsGun;
-    private WeaponBehaviour currentGun;
+    public WeaponBehaviour currentGun;
     private int indexGun = -1;
 
     public List<int> lsWeaponAmo = new List<int>();
@@ -36,16 +36,13 @@ public class WeaponControl : MonoBehaviour
             lsGun[i].SetupData(new GunData { amoutAmo = lsWeaponAmo[i] });
             lsGun[i].gameObject.SetActive(false);            
         }
-        indexGun = -1;
-        OnChangeGun();
+      
     }
-    public void OnChangeGun()
+    public void OnChangeGun(int indexGun)
     {
-        indexGun++;
-        if (indexGun > lsGun.Count - 1)
-        {
-            indexGun = 0;
-        }
+        Debug.LogError("index gun" + indexGun);
+
+        this.indexGun = indexGun;      
         if (currentGun != null)
         {
             currentGun.gameObject.SetActive(false);
@@ -54,9 +51,9 @@ public class WeaponControl : MonoBehaviour
         currentGun = lsGun[indexGun];
 
         currentGun.gameObject.SetActive(true);
-        if (OnChangeGunHandle != null)
-        {
-            OnChangeGunHandle(currentGun);
-        }
+        //if (OnChangeGunHandle != null)
+        //{
+        //    OnChangeGunHandle(currentGun);
+        //}
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8724586627113007287}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AnchorHub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 8724586627998026519}
   - component: {fileID: 8724586627998026513}
   - component: {fileID: 8724586627998026512}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 3490773716057074622}
   - component: {fileID: 8724586628829336894}
   - component: {fileID: 8724586628829336893}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NormalEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -48,12 +48,11 @@ public abstract class WeaponBehaviour : MonoBehaviour
         transform.localRotation = Quaternion.identity;
         timer += Time.deltaTime;
         isFire = CharacterInput.isFire;
-        if (isFire && timer >= rof)
+        if (isFire && timer >= rof && currentBullet > 0)
         {
             timer = 0;
             CharacterInput.isFire = false;
             weaponAlgorithm.OnAttackAlgorithm(this);
-
         }
         OnUpdate();
     }

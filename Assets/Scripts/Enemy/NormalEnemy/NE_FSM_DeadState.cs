@@ -20,7 +20,7 @@ public class NE_FSM_DeadState : FSMState
     public override void OnUpdate()
     {
         timerCount += Time.deltaTime;        
-        if (timerCount>1)
+        if (timerCount > 0.5f)
         {            
             parent.OnDead();            
         }

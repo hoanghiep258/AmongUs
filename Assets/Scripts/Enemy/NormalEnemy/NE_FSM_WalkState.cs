@@ -19,8 +19,7 @@ public class NE_FSM_WalkState : FSMState
     
 	public override void OnExit ()
 	{
-        parent.agent.SetDestination(parent.trans.position);
-		parent.dataBinding.Speed = 0;
+        //parent.agent.SetDestination(parent.trans.position);
 		base.OnExit ();
 	}
 }
