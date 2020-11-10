@@ -27,7 +27,7 @@ public class EnemyControl : FSMSystem
     public virtual void OnSetup(object dataInit)
     {
 
-        hp = 10;
+        hp = 1;
         currenthp = hp;
         // tao hub enemy 
         hubHP = HubControl.instance.CreateHub();
@@ -39,6 +39,7 @@ public class EnemyControl : FSMSystem
     }
     public void OnDead()
     {
+        Debug.LogError("On dead");
         if (OnEnemyDead != null)
         {
             OnEnemyDead(this);

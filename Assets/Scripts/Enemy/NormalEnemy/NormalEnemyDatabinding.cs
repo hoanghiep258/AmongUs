@@ -31,16 +31,16 @@ public class NormalEnemyDatabinding : MonoBehaviour
         }
     }
 
-    private Animator anim;
+    public Animator anim;
     private int AnimKeySpeed;
     private int AnimKeyAttack;
     private int AnimKeyDead;
     // Use this for initialization
     void Awake()
     {
-        anim = gameObject.GetComponentInChildren<Animator>();
+        //anim = gameObject.GetComponentInChildren<Animator>();
         //AnimKeySpeed = Animator.StringToHash("Speed");
         //AnimKeyAttack = Animator.StringToHash("Attack");
-        //AnimKeyDead = Animator.StringToHash("Dead");
+        AnimKeyDead = Animator.StringToHash("Dead");
     }
 }

@@ -109,7 +109,7 @@ SpriteRenderer:
   m_Size: {x: 3.2, y: 3.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &8724586627998026512
@@ -122,7 +122,7 @@ Animator:
   m_GameObject: {fileID: 8724586627998026518}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 179ad155b93a4488ba0fa5caaba10288, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -140,14 +140,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8724586628829336888}
+  - component: {fileID: 8724586628829336883}
+  - component: {fileID: 8724586628829336892}
   - component: {fileID: 8724586628829336895}
+  - component: {fileID: 3490773716057074622}
   - component: {fileID: 8724586628829336894}
   - component: {fileID: 8724586628829336893}
-  - component: {fileID: 8724586628829336892}
-  - component: {fileID: 8724586628829336883}
   m_Layer: 0
   m_Name: NormalEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,6 +169,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8724586628829336883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724586628829336882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35d044ddbcf8c948992066bae280417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  currenthp: 0
+  anchorHub: {fileID: 8724586627113007287}
+  trans: {fileID: 0}
+  isGetHit: 0
+  dataBinding: {fileID: 8724586628829336892}
+  agent: {fileID: 0}
+  playerTrans: {fileID: 0}
+  characterHealth: {fileID: 0}
+  count_AttackRate: 3
+--- !u!114 &8724586628829336892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724586628829336882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ccd97d9446c30c4e9fcf2658dab5e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 8724586627998026512}
 --- !u!58 &8724586628829336895
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -184,6 +220,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.2
+--- !u!114 &3490773716057074622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724586628829336882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea12c999af74fad4f812e3606d04c48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8724586628829336894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,37 +299,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8724586628829336892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8724586628829336882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ccd97d9446c30c4e9fcf2658dab5e41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8724586628829336883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8724586628829336882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f35d044ddbcf8c948992066bae280417, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  currenthp: 0
-  anchorHub: {fileID: 8724586627113007287}
-  trans: {fileID: 0}
-  isGetHit: 0
-  dataBinding: {fileID: 8724586628829336892}
-  agent: {fileID: 0}
-  playerTrans: {fileID: 0}
-  characterHealth: {fileID: 0}
-  count_AttackRate: 3

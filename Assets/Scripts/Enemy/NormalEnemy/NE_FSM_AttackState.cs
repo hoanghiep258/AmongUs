@@ -11,7 +11,7 @@ public class NE_FSM_AttackState : FSMState
 	public NormalEnemyControl parent;
 
 	public override void OnEnter ()
-	{
+	{		
         parent.OnEndAttack();
 		base.OnEnter ();
 	}
@@ -19,7 +19,8 @@ public class NE_FSM_AttackState : FSMState
 	public override void OnFixedUpdate ()
 	{
 		if (parent.count_AttackRate >= 3) {
-			parent.dataBinding.Attack = true;
+			//parent.dataBinding.Attack = true;
+			parent.GotoState(parent.deadState);
 			parent.count_AttackRate = 0;
 		}
 		base.OnFixedUpdate ();

@@ -12,6 +12,9 @@ public class MissionControl : MonoBehaviour
 
     public PlayerControl player;
 
+    public List<EnemyControl> lsEnemyControls = new List<EnemyControl>();
+
+    public KdTree<Transform> enemyKdTree = new KdTree<Transform>();
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,6 +25,8 @@ public class MissionControl : MonoBehaviour
 
     public void InitMission(bool isColor = false)
     {
+        lsEnemyControls.Clear();
+        enemyKdTree.Clear();
         Debug.LogError("isColor: " + isColor);
         player.OnSetup(isColor);
         player.gameObject.SetActive(true);
@@ -58,9 +63,14 @@ public class MissionControl : MonoBehaviour
         EnemyControl enemyControl = goenemy.GetComponent<EnemyControl>();
         enemyControl.OnEnemyDead += OnEnemyDeadCallback;
         enemyControl.OnSetup(data);
+
+        lsEnemyControls.Add(enemyControl);
+        enemyKdTree.Add(enemyControl.transform);
+
         //3.
         dataModel.currentEnemy++;
         dataModel.totalEnemyCreated++;
+        goenemy.name = dataModel.currentEnemy.ToString();
     }
 
     private void OnEnemyDeadCallback(EnemyControl enemy)
@@ -69,9 +79,17 @@ public class MissionControl : MonoBehaviour
         dataModel.currentEnemy--;
         dataModel.totalEnemyDie++;
 
+        OnUpdateEnemy(enemy);
         if (dataModel.totalEnemyDie >= valueAppearBoss)
         {
             // Show Boss
         }
+    }
+
+    public void OnUpdateEnemy(EnemyControl enemyControl)
+    {
+        int index = lsEnemyControls.IndexOf(enemyControl);
+        lsEnemyControls.RemoveAt(index);
+        enemyKdTree.RemoveAt(index);
     }
 }

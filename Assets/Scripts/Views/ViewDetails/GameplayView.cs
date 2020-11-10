@@ -61,4 +61,9 @@ public class GameplayView : BaseView
         lsSkillCounts[index]++;
         lsTxtSkillCounts[index].text = lsSkillCounts[index].ToString();
     }
+
+    public void OnFire()
+    {
+        CharacterInput.isFire = true;
+    }
 }

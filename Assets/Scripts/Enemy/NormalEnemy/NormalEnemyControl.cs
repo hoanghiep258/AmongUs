@@ -31,20 +31,21 @@ public class NormalEnemyControl : EnemyControl
         agent.SetDestination(playerTrans.position);
         agent.OnDestinationReached += Agent_OnDestinationReached;
 
+        walkState.parent = this;
+        AddState(walkState);
+
         attackState.parent = this;
         AddState(attackState);
 
         deadState.parent = this;
         AddState(deadState);
-
-        walkState.parent = this;
-        AddState(walkState);
     }
 
     void Agent_OnDestinationReached()
     {
-        
-            GotoState(attackState);
+        agent.OnDestinationReached -= Agent_OnDestinationReached;
+        GotoState(attackState);
+
     }
 
     public override void OnSystemUpdate()
