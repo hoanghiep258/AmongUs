@@ -18,7 +18,7 @@ public class EnemyControl : FSMSystem
     protected HPHub hubHP;
     public Transform trans;
     public bool isGetHit = false;
-
+    public GameObject goCoin;
     private void Awake()
     {
         trans = transform;
@@ -43,6 +43,8 @@ public class EnemyControl : FSMSystem
         {
             OnEnemyDead(this);
         }
+        GameObject goObject = Instantiate(goCoin, MissionControl.instance.transform);
+        goObject.transform.position = trans.position;
         Destroy(hubHP.gameObject);
         Destroy(gameObject);
     }

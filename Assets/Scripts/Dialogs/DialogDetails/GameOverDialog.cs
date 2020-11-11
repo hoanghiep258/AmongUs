@@ -38,11 +38,16 @@ public class GameOverDialog : BaseDialog
         {
             imgChar.sprite = lsSkin[indexSkin];
         }
+        HubControl.instance.gameObject.SetActive(false);
+        MissionControl.instance.ClearAllEnemy();
+        HubControl.instance.DeleteAllHub();
+        DataAPIManager.Instance.AddCoin(gameOverDialogParam.valueCoin);
         base.OnSetUp(param);
     }
 
     public void OnGotoHome()
     {
+        HubControl.instance.gameObject.SetActive(true);
         ViewManager.Instance.SwitchView(ViewIndex.HomeView);
         DialogManager.Instance.HideDialog(this);
 
@@ -50,6 +55,8 @@ public class GameOverDialog : BaseDialog
 
     public void OnRestartGame()
     {
+        Time.timeScale = 1;
+        HubControl.instance.gameObject.SetActive(true);
         // Restart game
         GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
         gameplayView.OnRestartGame();

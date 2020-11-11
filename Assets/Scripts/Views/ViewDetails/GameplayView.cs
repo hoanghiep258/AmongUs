@@ -11,18 +11,20 @@ public class GameplayView : BaseView
     private int[] lsDefaultSkillCounts = { 10, 20, 5, 15 };
 
     public JoyStick joyStick;
+    [SerializeField]
+    private TextMeshProUGUI txtCoin;
 
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
         base.OnSetUp(param, callback);
         lsSkillCounts.Clear();
-
+        
         for (int i = 0; i < lsDefaultSkillCounts.Length; i++)
         {
             lsSkillCounts.Add(lsDefaultSkillCounts[i]);
             lsTxtSkillCounts[i].text = lsDefaultSkillCounts[i].ToString();
         }
-        if (DataAPIManager.Instance.GetColor() <= 0)
+        if (DataAPIManager.Instance.GetColor() < 0)
         {
             MissionControl.instance.InitMission(false);
         }
@@ -39,11 +41,12 @@ public class GameplayView : BaseView
 
     public void OnPauseGame()
     {
+        HubControl.instance.gameObject.SetActive(false);
         DialogManager.Instance.ShowDialog(DialogIndex.PauseDialog, new PauseDialogParam
         {
-            percentHP = 90,
-            valueCoin = 0,
-            valueKill = 0
+            percentHP = MissionControl.instance.player.GetComponent<CharacterHealth>().PercentHP(),
+            valueCoin = MissionControl.instance.curCoin,
+            valueKill = MissionControl.instance.totalEnemyDead
         });
     }
 
@@ -70,5 +73,10 @@ public class GameplayView : BaseView
     public void OnFire()
     {
         CharacterInput.isFire = true;
+    }
+
+    private void Update()
+    {
+        txtCoin.text = MissionControl.instance.curCoin.ToString();
     }
 }

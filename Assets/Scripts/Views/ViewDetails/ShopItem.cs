@@ -18,12 +18,13 @@ public class ShopItem : MonoBehaviour
     private int indexOfList;
     [SerializeField]
     private int indexItem;
-
+    private GameObject goLock;
     private void Awake()
     {
         indexOfList = int.Parse(transform.name);
 
         goIsSelected = transform.Find("imgChoose").gameObject;
+        goLock = transform.Find("imgLock").gameObject;
         goIsSelected.SetActive(false);
         if (isCoin)
         {
@@ -91,7 +92,11 @@ public class ShopItem : MonoBehaviour
                 DataAPIManager.Instance.AddPet((indexOfList - 1).ToString());
                 break;
         }
+        HomeView homeView = (HomeView)ViewManager.Instance.currentView;
+        homeView.OnSelectItem(indexItem, indexOfList);
+
         goIsSelected.SetActive(true);
+        goLock.SetActive(false);
     }
 
     public void UnchooseItem()

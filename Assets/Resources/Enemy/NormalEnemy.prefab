@@ -186,6 +186,7 @@ MonoBehaviour:
   anchorHub: {fileID: 8724586627113007287}
   trans: {fileID: 0}
   isGetHit: 0
+  goCoin: {fileID: 6093126501727871443, guid: 22c10e945559f52419907400eb19dae8, type: 3}
   dataBinding: {fileID: 8724586628829336892}
   agent: {fileID: 0}
   playerTrans: {fileID: 0}

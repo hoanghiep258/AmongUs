@@ -55,6 +55,7 @@ MonoBehaviour:
   anchorHub: {fileID: 9073483201355482204}
   trans: {fileID: 6519618548193966720}
   isGetHit: 0
+  goCoin: {fileID: 6093126501727871443, guid: 22c10e945559f52419907400eb19dae8, type: 3}
   dataBinding: {fileID: 6914668766701950431}
   agent: {fileID: 0}
   playerTrans: {fileID: 0}
@@ -62,6 +63,8 @@ MonoBehaviour:
   count_AttackRate: 3
   goHand: {fileID: 8260422600662406668}
   speed: 3
+  goBullet: {fileID: 7589599346543084189, guid: b66c328f346cca44796159dbfd0175dd,
+    type: 3}
 --- !u!114 &6914668766701950431
 MonoBehaviour:
   m_ObjectHideFlags: 0

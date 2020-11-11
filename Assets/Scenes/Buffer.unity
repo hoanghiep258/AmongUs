@@ -601,6 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9645e42772e24804a885bc901ec792e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hubHP: {fileID: 0}
   anchorHub: {fileID: 1146527774}
 --- !u!4 &877608938
 Transform:
@@ -768,7 +769,7 @@ MonoBehaviour:
   - {fileID: 1675350506}
   - {fileID: 324517668}
   currentGun: {fileID: 0}
-  lsWeaponAmo: 05000000050000000500000005000000
+  lsWeaponAmo: 0a00000014000000050000000f000000
 --- !u!1 &1067661868
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HubPrefab: {fileID: 7980448425377282430, guid: a4dcc09204080a747b37d4a1a7e4fbb6,
     type: 3}
+  HubPlayerPrefab: {fileID: 0}
   parentRect: {fileID: 1232891729}
 --- !u!114 &1232891726
 MonoBehaviour:
@@ -1089,6 +1091,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1276002925}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1533534976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1533534977}
+  m_Layer: 0
+  m_Name: PosPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1533534977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533534976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582603599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,7 +1415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f34be426ab61e408d53419d46816e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posPlayer: {fileID: 877608938}
+  posPlayer: {fileID: 1533534977}
   polymap: {fileID: 185942235}
 --- !u!1 &2071719335
 GameObject:
@@ -1415,8 +1447,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4e6112d337aae448022761ac7a7075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataModel: {fileID: 0}
   player: {fileID: 877608939}
   lsEnemyControls: []
+  totalEnemyDead: 0
+  curCoin: 0
 --- !u!4 &2071719337
 Transform:
   m_ObjectHideFlags: 0

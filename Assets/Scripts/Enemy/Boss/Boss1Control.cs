@@ -14,6 +14,7 @@ public class Boss1Control : EnemyControl
     public float count_AttackRate = 3f;
     public GameObject goHand;
     public float speed = 3;
+    public GameObject goBullet;
 
     public override void OnSetup(object dataInit, int maxHP)
     {
@@ -62,10 +63,19 @@ public class Boss1Control : EnemyControl
         characterHealth.OnDamage(5);
         goHand.SetActive(false);
         agent.maxSpeed = speed;
-        GotoState(walkState);
-        Debug.LogError("Boss endAttack");
+        GotoState(walkState);        
     }
 
+    public void OnShoot()
+    {
+        Transform bullet = Instantiate(goBullet).transform;
+        bullet.position = trans.position;
+        Vector3 dir = playerTrans.position - bullet.position;
+        dir.Normalize();
+        bullet.up = dir;
+
+        bullet.GetComponent<BulletEnemy>().Setup(dir, 20);
+    }
 
     public override void Ondamage(int damage)
     {

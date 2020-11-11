@@ -7,14 +7,16 @@ public class MissionControl : MonoBehaviour
     public static MissionControl instance;
     public MissionData dataModel;
 
-    private const int valueAppearBoss = 100;
+    private const int valueAppearBoss = 3;
     private const float timerCreateEnemy = 1;
 
     public PlayerControl player;
 
     public List<EnemyControl> lsEnemyControls = new List<EnemyControl>();
 
-    public KdTree<Transform> enemyKdTree = new KdTree<Transform>();    
+    public KdTree<Transform> enemyKdTree = new KdTree<Transform>();
+    public int totalEnemyDead = 0;
+    public int curCoin;
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,7 +34,8 @@ public class MissionControl : MonoBehaviour
         GameObject goPlayer = player.gameObject;
         goPlayer.transform.position = ConfigScene.instance.posPlayer.position;
         goPlayer.transform.rotation = Quaternion.identity;
-
+        totalEnemyDead = 0;
+        curCoin = 0;
         //goPlayer.GetComponent<WeaponControl>().Setup();
         //goPlayer.transform.localScale = Vector3.one;
         StartCoroutine("LoopCreateEnemy");
@@ -82,7 +85,8 @@ public class MissionControl : MonoBehaviour
     {
         // check 
         dataModel.currentEnemy--;
-        dataModel.totalEnemyDie++;        
+        dataModel.totalEnemyDie++;
+        totalEnemyDead++;
         OnUpdateEnemy(enemy);
         if (dataModel.totalEnemyDie >= valueAppearBoss)
         {            
@@ -103,7 +107,8 @@ public class MissionControl : MonoBehaviour
     private void OnBossDeadCallback(EnemyControl enemy)
     {
         dataModel.currentEnemy--;
-        dataModel.totalEnemyDie++;        
+        dataModel.totalEnemyDie++;
+        totalEnemyDead++;
         OnUpdateEnemy(enemy);
         StartCoroutine("LoopCreateEnemy");
     }
@@ -113,5 +118,18 @@ public class MissionControl : MonoBehaviour
         int index = lsEnemyControls.IndexOf(enemyControl);
         lsEnemyControls.RemoveAt(index);
         enemyKdTree.RemoveAt(index);
+    }
+
+    public void AddCoin()
+    {
+        curCoin++;
+    }
+
+    public void ClearAllEnemy()
+    {
+        for(int i = 0; i < lsEnemyControls.Count; i++)
+        {
+            Destroy(lsEnemyControls[i].gameObject);
+        }
     }
 }

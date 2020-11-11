@@ -10,13 +10,16 @@ public class B1_FSM_AttackState : FSMState
 	[NonSerialized]
 	public Boss1Control parent;
 	private float timer;
+    private bool isShoot;
 	public override void OnEnter ()
 	{		
 		parent.goHand.SetActive(true);
 		parent.agent.maxSpeed = 0;
 		parent.dataBinding.Speed = 0;
 		timer = 0;
-		base.OnEnter ();
+        isShoot = false;
+
+        base.OnEnter ();
 	}
 
 	public override void OnFixedUpdate ()
@@ -29,6 +32,14 @@ public class B1_FSM_AttackState : FSMState
 			timer = -1000;
 
 		}
+        if (isShoot)
+            return;
+
+        if (timer > 0.5f)
+        {
+            isShoot = true;
+            parent.OnShoot();
+        }
 		base.OnFixedUpdate ();
 	}
     public override void OnExit()

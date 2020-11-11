@@ -44,7 +44,7 @@ public class DataController : MonoBehaviour
 
     public void SetCoin(int curCoin)
     {
-        databaseLocal.UpdateData<int>(PathData.name, curCoin);
+        databaseLocal.UpdateData<int>(PathData.coin, curCoin);
     }
 
     public int GetCoin()

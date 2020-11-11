@@ -21,4 +21,11 @@ public class HubControl : MonoBehaviour
         return transHub.GetComponent<HPHub>();
     }
 
+    public void DeleteAllHub()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+    }
 }

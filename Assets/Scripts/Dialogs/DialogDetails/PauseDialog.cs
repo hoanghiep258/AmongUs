@@ -19,9 +19,10 @@ public class PauseDialog : BaseDialog
     [SerializeField]
     private Image imgChar;
 
+    private PauseDialogParam pauseDialogParam;
     public override void OnSetUp(DialogParam param = null)
     {
-        PauseDialogParam pauseDialogParam = (PauseDialogParam)param;
+        pauseDialogParam = (PauseDialogParam)param;
         txtKill.text = pauseDialogParam.valueKill.ToString() + " IMPOSTOR";
         txtCoin.text = pauseDialogParam.valueCoin.ToString();
         sliderHP.value = pauseDialogParam.percentHP;
@@ -39,12 +40,15 @@ public class PauseDialog : BaseDialog
 
     public void OnContinueGame()
     {
+        HubControl.instance.gameObject.SetActive(true);
         Time.timeScale = 1;
         DialogManager.Instance.HideDialog(this);
     }
 
     public void OnGotoHome()
     {
+        DataAPIManager.Instance.AddCoin(pauseDialogParam.valueCoin);
+        HubControl.instance.gameObject.SetActive(true);
         Time.timeScale = 1;
         DialogManager.Instance.HideDialog(this);
         ViewManager.Instance.SwitchView(ViewIndex.HomeView);
@@ -52,6 +56,8 @@ public class PauseDialog : BaseDialog
 
     public void OnRestartGame()
     {
+        DataAPIManager.Instance.AddCoin(pauseDialogParam.valueCoin);
+        HubControl.instance.gameObject.SetActive(true);
         Time.timeScale = 1;
         // Restart game
         GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;

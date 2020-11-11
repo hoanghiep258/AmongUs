@@ -36,12 +36,21 @@ public class CharacterHealth : MonoBehaviour {
         {
             GetComponent<CharacterDataBinding>().Dead = true;
             Time.timeScale = 0;
-            DialogManager.Instance.ShowDialog(DialogIndex.GameOverDialog, new GameOverDialogParam { valueCoin = 0, valueKill = MissionControl.instance.dataModel.totalEnemyCreated });
+            DialogManager.Instance.ShowDialog(DialogIndex.GameOverDialog, new GameOverDialogParam { valueCoin = MissionControl.instance.curCoin, valueKill = MissionControl.instance.totalEnemyDead });
         }
     }
 
     private void LateUpdate()
     {
-        hubHP.OnUpdatePos(anchorHub.position);
+        if (hubHP != null)
+        {
+            hubHP.OnUpdatePos(anchorHub.position);
+        }
+        
+    }
+
+    public float PercentHP()
+    {
+        return (float)curHP / (float)maxHP;
     }
 }

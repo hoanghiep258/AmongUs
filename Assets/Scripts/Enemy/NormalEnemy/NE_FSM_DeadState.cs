@@ -21,7 +21,7 @@ public class NE_FSM_DeadState : FSMState
     {
         timerCount += Time.deltaTime;        
         if (timerCount > 0.5f)
-        {            
+        {                        
             parent.OnDead();            
         }
         base.OnUpdate();

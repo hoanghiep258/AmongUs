@@ -21,6 +21,8 @@ public class HomeView : BaseView
     private Sprite defaultSpriteChar;
     [SerializeField]
     private Image imgPet;
+    [SerializeField]
+    private Image imgHat;
 
     [SerializeField]
     private List<Color> lsColors = new List<Color>();
@@ -58,18 +60,16 @@ public class HomeView : BaseView
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
         OnBtnClick(0);
-
+        DataAPIManager.Instance.AddCoin(100);
         string[] lsBoughtColor = DataAPIManager.Instance.GetLsBoughtColor();
         if (lsBoughtColor != null)
         {
             for (int i = 0; i < lsBoughtColor.Length; i++)
             {
-
                 int index = int.Parse(lsBoughtColor[i]);
                 lsColorItems[index].OnSetup(true);
             }
         }
-        
 
         string[] lsBoughtHat = DataAPIManager.Instance.GetLsBoughtHat();
         if (lsBoughtHat != null)
@@ -106,26 +106,34 @@ public class HomeView : BaseView
         indexHat = DataAPIManager.Instance.GetHat();
         indexSkin = DataAPIManager.Instance.GetSkin();
         indexPet = DataAPIManager.Instance.GetPet();
-
+        Debug.LogError("index " + indexColor + " " + indexSkin);
         if (indexColor < 0)
         {
             indexColor = 0;
         }
-        lsColorItems[indexColor].OnClick();
+        else
+        {
+            lsColorItems[indexColor].OnClick();
+        }
+        
         lsHatItems[indexHat].OnClick();
 
         if (indexSkin < 0)
         {
             indexSkin = 0;
         }
-        lsSkinItems[indexSkin].OnClick();
+        else
+        {
+            lsSkinItems[indexSkin].OnClick();
+        }
+        
         lsPetItems[indexPet].OnClick();
 
         base.OnSetUp(param, callback);
     }
 
     public void OnStartGamePlay()
-    {
+    {        
         DataAPIManager.Instance.SetName(inpName.text);
         if (curIndexBtn == 0)
         {
@@ -166,7 +174,7 @@ public class HomeView : BaseView
         switch (indexItem)
         {
             case 0:
-                indexColor = indexOfList;
+                indexColor = indexOfList - 1;
                 for (int i = 0; i < lsColorItems.Count; i++)
                 {
                     lsColorItems[i].UnchooseItem();
@@ -174,14 +182,15 @@ public class HomeView : BaseView
                 imgChar.color = lsColors[indexOfList - 1];               
                 break;
             case 1:
-                indexHat = indexOfList;
+                indexHat = indexOfList - 1;
                 for (int i = 0; i < lsHatItems.Count; i++)
                 {
                     lsHatItems[i].UnchooseItem();
                 }
+                imgHat.sprite = lsHats[indexOfList - 1];
                 break;
             case 2:
-                indexSkin = indexOfList;
+                indexSkin = indexOfList - 1;
                 imgChar.color = Color.white;
                 imgChar.sprite = lsSkins[indexOfList - 1];              
                 for (int i = 0; i < lsSkinItems.Count; i++)
@@ -190,12 +199,12 @@ public class HomeView : BaseView
                 }
                 break;
             case 3:
-                indexPet = indexOfList;
+                indexPet = indexOfList - 1;
                 for (int i = 0; i < lsPetItems.Count; i++)
                 {
                     lsPetItems[i].UnchooseItem();
                 }
-                imgPet.sprite = lsPets[indexPet - 1];
+                imgPet.sprite = lsPets[indexOfList - 1];
                 break;
         }
     }

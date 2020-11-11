@@ -11,8 +11,7 @@ public class NormalEnemyControl : EnemyControl
     public NE_FSM_AttackState attackState;
     public NE_FSM_DeadState deadState;
     public NE_FSM_WalkState walkState;
-    public float count_AttackRate = 3f;
-
+    public float count_AttackRate = 3f;    
     public override void OnSetup(object dataInit, int maxHP)
     {
         base.OnSetup(dataInit);
