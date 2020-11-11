@@ -28,6 +28,11 @@ public class BulletPlayer : MonoBehaviour {
         if (isHit)
         {
             timer += Time.deltaTime;
+            if (timer > 0.25f)
+            {
+                CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
+                circleCollider.radius = radius;
+            }
             if (timer > 0.5f)
             {
                 Destroy(gameObject);
@@ -49,7 +54,7 @@ public class BulletPlayer : MonoBehaviour {
     {        
         if (hitInfo.collider.gameObject.CompareTag("Enemy"))
         {
-            hitInfo.collider.gameObject.GetComponent<EnemyOnDamage>().ApplyDamage(5);
+            hitInfo.collider.gameObject.GetComponent<EnemyOnDamage>().ApplyDamage(1);
             if (!isAoe)
             {
                 Destroy(gameObject);
@@ -57,8 +62,7 @@ public class BulletPlayer : MonoBehaviour {
             else
             {
                 isHit = true;
-                CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
-                circleCollider.radius = radius;
+                
             }
         }
           
@@ -66,8 +70,7 @@ public class BulletPlayer : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D coll)
-    {
-        Debug.LogError(coll.gameObject.name);
+    {        
         if (coll.gameObject.CompareTag("Enemy"))
             coll.gameObject.GetComponent<EnemyOnDamage>().ApplyDamage(5); ;
     }

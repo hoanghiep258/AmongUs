@@ -40,8 +40,6 @@ public class WeaponControl : MonoBehaviour
     }
     public void OnChangeGun(int indexGun)
     {
-        Debug.LogError("index gun" + indexGun);
-
         this.indexGun = indexGun;      
         if (currentGun != null)
         {

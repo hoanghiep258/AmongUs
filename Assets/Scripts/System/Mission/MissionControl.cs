@@ -5,7 +5,7 @@ using UnityEngine;
 public class MissionControl : MonoBehaviour
 {
     public static MissionControl instance;
-    private MissionData dataModel;
+    public MissionData dataModel;
 
     private const int valueAppearBoss = 100;
     private const float timerCreateEnemy = 1;
@@ -14,7 +14,7 @@ public class MissionControl : MonoBehaviour
 
     public List<EnemyControl> lsEnemyControls = new List<EnemyControl>();
 
-    public KdTree<Transform> enemyKdTree = new KdTree<Transform>();
+    public KdTree<Transform> enemyKdTree = new KdTree<Transform>();    
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,15 +24,16 @@ public class MissionControl : MonoBehaviour
     }
 
     public void InitMission(bool isColor = false)
-    {
+    {        
         lsEnemyControls.Clear();
-        enemyKdTree.Clear();
-        Debug.LogError("isColor: " + isColor);
+        enemyKdTree.Clear();        
         player.OnSetup(isColor);
         player.gameObject.SetActive(true);
         GameObject goPlayer = player.gameObject;
         goPlayer.transform.position = ConfigScene.instance.posPlayer.position;
         goPlayer.transform.rotation = Quaternion.identity;
+
+        //goPlayer.GetComponent<WeaponControl>().Setup();
         //goPlayer.transform.localScale = Vector3.one;
         StartCoroutine("LoopCreateEnemy");
     }
@@ -70,20 +71,41 @@ public class MissionControl : MonoBehaviour
         //3.
         dataModel.currentEnemy++;
         dataModel.totalEnemyCreated++;
-        goenemy.name = dataModel.currentEnemy.ToString();
+        goenemy.name = dataModel.totalEnemyCreated.ToString();
+        if (dataModel.totalEnemyCreated % valueAppearBoss == 0)
+        {
+            StopAllCoroutines();
+        }
     }
 
     private void OnEnemyDeadCallback(EnemyControl enemy)
     {
         // check 
         dataModel.currentEnemy--;
-        dataModel.totalEnemyDie++;
-
+        dataModel.totalEnemyDie++;        
         OnUpdateEnemy(enemy);
         if (dataModel.totalEnemyDie >= valueAppearBoss)
-        {
+        {            
+            dataModel.totalEnemyDie = 0;
+            int indexBoss = Random.Range(1, 4);
+            indexBoss = 1;
+            GameObject goBoss = Instantiate(Resources.Load("Enemy/Boss" + indexBoss, typeof(GameObject))) as GameObject;
+            EnemyControl enemyControl = goBoss.GetComponent<EnemyControl>();
+            enemyControl.OnEnemyDead += OnBossDeadCallback;
+            enemyControl.OnSetup(null, 5);
+
+            lsEnemyControls.Add(enemyControl);
+            enemyKdTree.Add(enemyControl.transform);        
             // Show Boss
         }
+    }
+
+    private void OnBossDeadCallback(EnemyControl enemy)
+    {
+        dataModel.currentEnemy--;
+        dataModel.totalEnemyDie++;        
+        OnUpdateEnemy(enemy);
+        StartCoroutine("LoopCreateEnemy");
     }
 
     public void OnUpdateEnemy(EnemyControl enemyControl)

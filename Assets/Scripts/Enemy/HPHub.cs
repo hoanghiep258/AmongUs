@@ -8,11 +8,18 @@ public class HPHub : MonoBehaviour
     public Image hpProgess;
     public RectTransform rect;
     public RectTransform parentRect;
+    public Text txtName;
     // Use this for initialization
     void Awake()
     {
         rect = GetComponent<RectTransform>();
         parentRect = HubControl.instance.parentRect;
+        txtName.text = "";
+    }
+
+    public void OnSetName(string strName)
+    {
+        txtName.text = strName;
     }
 
     // Update is called once per frame

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 public class GameOverDialog : BaseDialog
 {
     [SerializeField]
@@ -14,6 +14,13 @@ public class GameOverDialog : BaseDialog
     [SerializeField]
     private TextMeshProUGUI txtCoin;
 
+    [SerializeField]
+    private List<Sprite> lsSkin = new List<Sprite>();
+    [SerializeField]
+    private Image imgChar;
+    [SerializeField]
+    private Sprite spriteDefaultChar;
+
     public override void OnSetUp(DialogParam param = null)
     {
         GameOverDialogParam gameOverDialogParam = (GameOverDialogParam)param;
@@ -22,6 +29,15 @@ public class GameOverDialog : BaseDialog
 
         // Get Name
         txtName.text = DataAPIManager.Instance.GetName();
+        int indexSkin = DataAPIManager.Instance.GetSkin();
+        if (indexSkin < 0)
+        {
+            imgChar.sprite = spriteDefaultChar;
+        }
+        else
+        {
+            imgChar.sprite = lsSkin[indexSkin];
+        }
         base.OnSetUp(param);
     }
 

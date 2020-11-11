@@ -6,6 +6,7 @@ public class HubControl : MonoBehaviour
 {
     public static HubControl instance;
     public Transform HubPrefab;
+    public Transform HubPlayerPrefab;
     public RectTransform parentRect;
     // Use this for initialization
     private void Awake()
@@ -19,4 +20,5 @@ public class HubControl : MonoBehaviour
         transHub.SetParent(transform);
         return transHub.GetComponent<HPHub>();
     }
+
 }

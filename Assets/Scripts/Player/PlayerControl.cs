@@ -23,6 +23,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private List<Sprite> lsPets = new List<Sprite>();
 
+   
     public void OnSetup(bool isColor)
     {
         int indexHat = DataAPIManager.Instance.GetHat();
@@ -45,5 +46,7 @@ public class PlayerControl : MonoBehaviour
 
         GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
         GetComponent<CharacterInput>().joyStick = gameplayView.joyStick;
+        GetComponent<CharacterHealth>().Setup(20);
     }
+
 }

@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _map: {fileID: 0}
-  maxSpeed: 1
+  maxSpeed: 2
   mass: 20
   stoppingDistance: 0.1
   slowingDistance: 1

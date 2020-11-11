@@ -51,7 +51,10 @@ public class GameplayView : BaseView
     {
         if (lsSkillCounts[index] <= 0)
             return;
-
+        if (MissionControl.instance.lsEnemyControls.Count <= 0)
+        {
+            return;
+        }
         lsSkillCounts[index]--;
         lsTxtSkillCounts[index].text = lsSkillCounts[index].ToString();
         MissionControl.instance.player.GetComponent<WeaponControl>().OnChangeGun(index);
