@@ -15,7 +15,15 @@ public class Boss1Control : EnemyControl
     public GameObject goHand;
     public float speed = 3;
     public GameObject goBullet;
+    public int indexBoss;
 
+    [SerializeField]
+    private List<GameObject> lsHands = new List<GameObject>();
+    [SerializeField]
+    private List<GameObject> lsgoBullets = new List<GameObject>();
+    public RuntimeAnimatorController defaultAnimator;
+
+    public List<AnimatorOverrideController> lsSkinAnimator;
     public override void OnSetup(object dataInit, int maxHP)
     {
         base.OnSetup(dataInit, maxHP);        
@@ -43,6 +51,22 @@ public class Boss1Control : EnemyControl
         goHand.SetActive(false);
     }
 
+
+    public void OnSetupBoss(int indexBoss)
+    {
+        this.indexBoss = indexBoss;
+        goBullet = lsgoBullets[indexBoss];
+        goHand = lsHands[indexBoss];
+        speed += (indexBoss / 2);
+        if (indexBoss == 0)
+        {
+            dataBinding.animator.runtimeAnimatorController = defaultAnimator;
+        }
+        else
+        {
+            dataBinding.animator.runtimeAnimatorController = lsSkinAnimator[indexBoss -1];
+        }
+    }
     void Agent_OnDestinationReached()
     {
         agent.OnDestinationReached -= Agent_OnDestinationReached;

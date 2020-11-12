@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using DG.Tweening;
 public class PauseDialog : BaseDialog
 {
     [SerializeField]
@@ -20,16 +20,22 @@ public class PauseDialog : BaseDialog
     private Image imgChar;
 
     private PauseDialogParam pauseDialogParam;
+
+    [SerializeField]
+    private Transform transPanel;
     public override void OnSetUp(DialogParam param = null)
     {
+        transPanel.localScale = Vector3.zero;
         pauseDialogParam = (PauseDialogParam)param;
         txtKill.text = pauseDialogParam.valueKill.ToString() + " IMPOSTOR";
         txtCoin.text = pauseDialogParam.valueCoin.ToString();
         sliderHP.value = pauseDialogParam.percentHP;
 
         txtName.text = DataAPIManager.Instance.GetName();
-        
-        Time.timeScale = 0;
+        transPanel.DOScale(0.9f, 0.25f).OnComplete(() =>
+        {
+            Time.timeScale = 0;
+        });
         base.OnSetUp(param);
     }
 
@@ -39,14 +45,18 @@ public class PauseDialog : BaseDialog
     }
 
     public void OnContinueGame()
-    {
+    {        
         HubControl.instance.gameObject.SetActive(true);
         Time.timeScale = 1;
         DialogManager.Instance.HideDialog(this);
     }
 
     public void OnGotoHome()
-    {
+    {        
+        MissionControl.instance.ClearAllEnemy();
+        HubControl.instance.DeleteAllHub();
+        MissionControl.instance.player.gameObject.SetActive(false);
+
         DataAPIManager.Instance.AddCoin(pauseDialogParam.valueCoin);
         HubControl.instance.gameObject.SetActive(true);
         Time.timeScale = 1;
@@ -56,6 +66,11 @@ public class PauseDialog : BaseDialog
 
     public void OnRestartGame()
     {
+        
+        MissionControl.instance.ClearAllEnemy();
+        HubControl.instance.DeleteAllHub();
+        MissionControl.instance.player.gameObject.SetActive(false);
+
         DataAPIManager.Instance.AddCoin(pauseDialogParam.valueCoin);
         HubControl.instance.gameObject.SetActive(true);
         Time.timeScale = 1;
@@ -63,5 +78,10 @@ public class PauseDialog : BaseDialog
         GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
         gameplayView.OnRestartGame();
         DialogManager.Instance.HideDialog(this);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
     }
 }

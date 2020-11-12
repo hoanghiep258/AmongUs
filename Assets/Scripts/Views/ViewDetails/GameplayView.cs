@@ -2,6 +2,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using System.Collections;
 
 public class GameplayView : BaseView
 {
@@ -14,9 +15,12 @@ public class GameplayView : BaseView
     [SerializeField]
     private TextMeshProUGUI txtCoin;
 
+    [SerializeField]
+    private GameObject goWarning;
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
         base.OnSetUp(param, callback);
+        MissionControl.instance.player.GetComponent<CharacterDataBinding>().Attack = -1;
         lsSkillCounts.Clear();
         
         for (int i = 0; i < lsDefaultSkillCounts.Length; i++)
@@ -32,6 +36,7 @@ public class GameplayView : BaseView
         {
             MissionControl.instance.InitMission(true);
         }
+        goWarning.SetActive(false);
     }
 
     public void OnRestartGame()
@@ -58,6 +63,7 @@ public class GameplayView : BaseView
         {
             return;
         }
+        MissionControl.instance.player.GetComponent<CharacterDataBinding>().Attack = index;
         lsSkillCounts[index]--;
         lsTxtSkillCounts[index].text = lsSkillCounts[index].ToString();
         MissionControl.instance.player.GetComponent<WeaponControl>().OnChangeGun(index);
@@ -71,12 +77,34 @@ public class GameplayView : BaseView
     }
 
     public void OnFire()
-    {
-        CharacterInput.isFire = true;
+    {        
+        StopCoroutine("DelayFire");
+        StartCoroutine(DelayFire(0.5f));
     }
 
     private void Update()
     {
         txtCoin.text = MissionControl.instance.curCoin.ToString();
+    }
+
+    public void ShowWarning()
+    {
+        StartCoroutine(CountdownBoss());
+    }
+
+    IEnumerator CountdownBoss()
+    {
+        goWarning.SetActive(true);
+        yield return new WaitForSecondsRealtime(5f);
+        goWarning.SetActive(false);
+        MissionControl.instance.ShowBoss();
+
+    }
+
+    IEnumerator DelayFire(float timer)
+    {
+        yield return new WaitForSecondsRealtime(timer);
+        CharacterInput.isFire = true;
+        MissionControl.instance.player.GetComponent<CharacterDataBinding>().Attack = -1;
     }
 }

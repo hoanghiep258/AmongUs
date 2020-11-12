@@ -1594,6 +1594,7 @@ MonoBehaviour:
   txtCoin: {fileID: 4902081656363285748}
   sliderHP: {fileID: 7480469954394017989}
   imgChar: {fileID: 4975803815397882170}
+  transPanel: {fileID: 5120357539763291814}
 --- !u!1 &8216560913803565521
 GameObject:
   m_ObjectHideFlags: 0

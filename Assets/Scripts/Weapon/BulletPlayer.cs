@@ -28,7 +28,7 @@ public class BulletPlayer : MonoBehaviour {
         if (isHit)
         {
             timer += Time.deltaTime;
-            if (timer > 0.25f)
+            if (timer > 0.35f)
             {
                 CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
                 circleCollider.radius = radius;
@@ -51,10 +51,21 @@ public class BulletPlayer : MonoBehaviour {
     }
 
     private void OnHit(RaycastHit2D hitInfo)
-    {        
+    {
+        Transform impact = null;
         if (hitInfo.collider.gameObject.CompareTag("Enemy"))
         {
             hitInfo.collider.gameObject.GetComponent<EnemyOnDamage>().ApplyDamage(1);
+            impact = Instantiate(enemy_impact);
+            if (impact != null)
+            {
+
+                // set vi tri va huong
+                impact.position = hitInfo.point;
+                impact.forward = hitInfo.normal;
+                //Quaternion q = Quaternion.Euler(90, 0, 0);
+                //impact.forward = q * (-transform.up);                
+            }
             if (!isAoe)
             {
                 Destroy(gameObject);

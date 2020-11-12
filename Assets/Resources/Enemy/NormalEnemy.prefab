@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 8724586628829336882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 8724586627998026519}
   - {fileID: 8724586627113007287}
@@ -187,6 +187,8 @@ MonoBehaviour:
   trans: {fileID: 0}
   isGetHit: 0
   goCoin: {fileID: 6093126501727871443, guid: 22c10e945559f52419907400eb19dae8, type: 3}
+  percentSpawnItem: 60
+  goItem: {fileID: 6093126501727871443, guid: 63ff4e87227224b2484a777c2c6d490d, type: 3}
   dataBinding: {fileID: 8724586628829336892}
   agent: {fileID: 0}
   playerTrans: {fileID: 0}

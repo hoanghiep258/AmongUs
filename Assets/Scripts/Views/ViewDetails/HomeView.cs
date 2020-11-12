@@ -57,6 +57,27 @@ public class HomeView : BaseView
     [SerializeField]
     private List<ShopItem> lsPetItems = new List<ShopItem>();
 
+    [Header("------------------------Panel------------------------")]
+    [SerializeField]
+    private RectTransform rectChar;
+    [SerializeField]
+    private RectTransform rectShop;
+
+    private void Start()
+    {
+        Debug.LogError((float)Screen.width / (float)Screen.height);
+        if (((float)Screen.width / (float)Screen.height) < 2)
+        {
+            
+            rectChar.sizeDelta = new Vector2(635, rectChar.sizeDelta.y);
+            rectChar.localPosition = new Vector3(-515f, 0, 0);
+            rectChar.localScale = new Vector3(0.85f, 0.85f, 1);
+
+            rectShop.sizeDelta = new Vector2(1032.5f, rectShop.sizeDelta.y);
+            rectShop.localPosition = new Vector3(320f, 0, 0);
+        }
+    }
+
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
         OnBtnClick(0);

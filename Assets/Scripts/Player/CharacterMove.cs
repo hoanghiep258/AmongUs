@@ -27,7 +27,7 @@ public class CharacterMove : MonoBehaviour
     void OnShootHandle()
     {
        
-        dataBinding.Attack = true;
+        //dataBinding.Attack = true;
     }
 	// Update is called once per frame
 	void Update ()
@@ -47,10 +47,10 @@ public class CharacterMove : MonoBehaviour
             //transform.localRotation =
             //    Quaternion.Slerp(transform.localRotation, q, Time.deltaTime * 10f);
             //2. move thoe vector up
-            RaycastHit2D hit2D= Physics2D.Raycast(transform.position, transform.up, 1, layerObstacleMask);
+            RaycastHit2D hit2D= Physics2D.Raycast(transform.position, dir2, 1, layerObstacleMask);
             if(hit2D.collider!=null)
             {
-               // Debug.Log(hit2D.transform.name);
+                Debug.Log(hit2D.transform.name);
             }
             else
             {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterDataBinding : MonoBehaviour {
 
     public Animator animator;
+    public Animator handAnimator;
     private int AnimKeySpeed;
     private int AnimKeyAttack;
     private int AnimKeyDead;
@@ -13,10 +14,9 @@ public class CharacterDataBinding : MonoBehaviour {
             animator.SetFloat(AnimKeySpeed, value);
         }
     }
-    public bool Attack{
-        set{
-            if(value)
-                animator.SetTrigger(AnimKeyAttack);
+    public int Attack{
+        set{            
+                handAnimator.SetInteger(AnimKeyAttack, value);
         }
     }
     public bool Dead

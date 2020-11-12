@@ -492,6 +492,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0dd0710ce9439a64da0736507add3244, type: 3}
   imgChar: {fileID: 271318369224650386}
   spriteDefaultChar: {fileID: 21300000, guid: 93a037c93cd9f4234bd874090595a189, type: 3}
+  transPanel: {fileID: 5006417477142823100}
 --- !u!1 &4380398973186762305
 GameObject:
   m_ObjectHideFlags: 0

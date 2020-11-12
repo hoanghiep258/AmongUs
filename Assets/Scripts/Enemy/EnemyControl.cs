@@ -19,6 +19,8 @@ public class EnemyControl : FSMSystem
     public Transform trans;
     public bool isGetHit = false;
     public GameObject goCoin;
+    public int percentSpawnItem = 60;
+    public GameObject goItem;
     private void Awake()
     {
         trans = transform;
@@ -43,8 +45,15 @@ public class EnemyControl : FSMSystem
         {
             OnEnemyDead(this);
         }
+        
         GameObject goObject = Instantiate(goCoin, MissionControl.instance.transform);
         goObject.transform.position = trans.position;
+        int rand = UnityEngine.Random.Range(0, 100);
+        if (rand > percentSpawnItem)
+        {
+            goObject = Instantiate(goItem, MissionControl.instance.transform);
+            goObject.transform.position = trans.position;
+        }
         Destroy(hubHP.gameObject);
         Destroy(gameObject);
     }

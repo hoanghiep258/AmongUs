@@ -31,11 +31,17 @@ public class MissionControl : MonoBehaviour
         enemyKdTree.Clear();        
         player.OnSetup(isColor);
         player.gameObject.SetActive(true);
+        player.GetComponent<CharacterDataBinding>().Attack = -1;
         GameObject goPlayer = player.gameObject;
         goPlayer.transform.position = ConfigScene.instance.posPlayer.position;
         goPlayer.transform.rotation = Quaternion.identity;
+
         totalEnemyDead = 0;
+        dataModel.currentEnemy = 0;
+        dataModel.totalEnemyDie = 0;
+        dataModel.totalEnemyCreated = 0;
         curCoin = 0;
+
         //goPlayer.GetComponent<WeaponControl>().Setup();
         //goPlayer.transform.localScale = Vector3.one;
         StartCoroutine("LoopCreateEnemy");
@@ -59,7 +65,14 @@ public class MissionControl : MonoBehaviour
         //1. tao Enemy in list: 
         ConfigEnemyData cfEnemy = ConfigManager.configEnemy.GetConfigEnemyByID(1);
         GameObject goenemy = Instantiate(Resources.Load("Enemy/" + cfEnemy.namePrefab, typeof(GameObject))) as GameObject;
-   
+
+        Vector3 posEnemy = new Vector3(Random.RandomRange(-5f, 5f), Random.RandomRange(-5f, 5f), 0);
+        while (Vector3.Distance(player.transform.position, posEnemy) < 3)
+        {
+            posEnemy = new Vector3(Random.RandomRange(-5f, 5f), Random.RandomRange(-5f, 5f), 0);
+        }
+        goenemy.transform.position = posEnemy;
+
         EnemyCreateData data = new EnemyCreateData
         {
             config = cfEnemy
@@ -80,7 +93,7 @@ public class MissionControl : MonoBehaviour
             StopAllCoroutines();
         }
     }
-
+    
     private void OnEnemyDeadCallback(EnemyControl enemy)
     {
         // check 
@@ -89,19 +102,27 @@ public class MissionControl : MonoBehaviour
         totalEnemyDead++;
         OnUpdateEnemy(enemy);
         if (dataModel.totalEnemyDie >= valueAppearBoss)
-        {            
+        {
             dataModel.totalEnemyDie = 0;
-            int indexBoss = Random.Range(1, 4);
-            indexBoss = 1;
-            GameObject goBoss = Instantiate(Resources.Load("Enemy/Boss" + indexBoss, typeof(GameObject))) as GameObject;
-            EnemyControl enemyControl = goBoss.GetComponent<EnemyControl>();
-            enemyControl.OnEnemyDead += OnBossDeadCallback;
-            enemyControl.OnSetup(null, 5);
-
-            lsEnemyControls.Add(enemyControl);
-            enemyKdTree.Add(enemyControl.transform);        
-            // Show Boss
+            // Show warning
+            GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
+            gameplayView.ShowWarning();
+            
         }
+    }
+
+    public void ShowBoss()
+    {
+        // Show Boss        
+        int indexBoss = Random.Range(0, 2);        
+        GameObject goBoss = Instantiate(Resources.Load("Enemy/Boss1", typeof(GameObject))) as GameObject;
+        goBoss.transform.position = ConfigScene.instance.posBoss.position;
+        EnemyControl enemyControl = goBoss.GetComponent<EnemyControl>();
+        enemyControl.OnEnemyDead += OnBossDeadCallback;
+        enemyControl.OnSetup(null, 3 + indexBoss * 2);
+        enemyControl.GetComponent<Boss1Control>().OnSetupBoss(indexBoss);
+        lsEnemyControls.Add(enemyControl);
+        enemyKdTree.Add(enemyControl.transform);
     }
 
     private void OnBossDeadCallback(EnemyControl enemy)
@@ -127,6 +148,8 @@ public class MissionControl : MonoBehaviour
 
     public void ClearAllEnemy()
     {
+        StopAllCoroutines();
+        //player.gameObject.SetActive(false);
         for(int i = 0; i < lsEnemyControls.Count; i++)
         {
             Destroy(lsEnemyControls[i].gameObject);

@@ -11,6 +11,7 @@ public class CharacterHealth : MonoBehaviour {
 
     public HPHub hubHP;
     public Transform anchorHub;
+    public float timer;
     private void Awake()
     {
         //Setup(20);
@@ -22,6 +23,7 @@ public class CharacterHealth : MonoBehaviour {
         hubHP = HubControl.instance.CreateHub();
         string strName = DataAPIManager.Instance.GetName();
         hubHP.OnSetName(strName);
+        timer = 0;
     }
     public void OnDamage(int damage)
     {
@@ -35,8 +37,10 @@ public class CharacterHealth : MonoBehaviour {
         if (curHP <= 0)
         {
             GetComponent<CharacterDataBinding>().Dead = true;
-            Time.timeScale = 0;
-            DialogManager.Instance.ShowDialog(DialogIndex.GameOverDialog, new GameOverDialogParam { valueCoin = MissionControl.instance.curCoin, valueKill = MissionControl.instance.totalEnemyDead });
+            HubControl.instance.gameObject.SetActive(false);
+            MissionControl.instance.ClearAllEnemy();
+            HubControl.instance.DeleteAllHub();
+            
         }
     }
 
@@ -46,7 +50,15 @@ public class CharacterHealth : MonoBehaviour {
         {
             hubHP.OnUpdatePos(anchorHub.position);
         }
-        
+        if (curHP <= 0)
+        {
+            timer += Time.deltaTime;
+            if (timer > 1.2f)
+            {
+                timer = -100;
+                DialogManager.Instance.ShowDialog(DialogIndex.GameOverDialog, new GameOverDialogParam { valueCoin = MissionControl.instance.curCoin, valueKill = MissionControl.instance.totalEnemyDead });
+            }
+        }
     }
 
     public float PercentHP()

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
@@ -23,7 +24,10 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private List<Sprite> lsPets = new List<Sprite>();
 
-   
+    public RuntimeAnimatorController defaultAnimator;
+
+    public List<AnimatorOverrideController> lsSkinAnimator;
+
     public void OnSetup(bool isColor)
     {
         int indexHat = DataAPIManager.Instance.GetHat();
@@ -37,16 +41,20 @@ public class PlayerControl : MonoBehaviour
             int indexColor = DataAPIManager.Instance.GetColor();
             spriteChar.sprite = defaultSpriteChar;
             spriteChar.color = lsColors[indexColor];
+            transform.GetComponent<CharacterDataBinding>().animator.runtimeAnimatorController = defaultAnimator;
         }
         else
         {
             int indexSkin = DataAPIManager.Instance.GetSkin();
+            indexSkin = 0;
             spriteChar.sprite = lsSkins[indexSkin];
+            transform.GetComponent<CharacterDataBinding>().animator.runtimeAnimatorController = lsSkinAnimator[indexSkin];
         }
 
         GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
         GetComponent<CharacterInput>().joyStick = gameplayView.joyStick;
         GetComponent<CharacterHealth>().Setup(20);
+        GetComponent<CharacterDataBinding>().Speed = 0;
     }
 
 }
