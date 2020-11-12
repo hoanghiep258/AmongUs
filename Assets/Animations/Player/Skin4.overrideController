@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Skin4
+  m_Controller: {fileID: 9100000, guid: 838e0b0680a9e4f7a9bc12bf1d40c883, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 650449ab0a6e443d480a2c7be41285c8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 18c717a0664dbec4f85a3cf33b57dd4d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 07e3486dfc07642519d7a21b7ad38045, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cbb5fe72dd6faae499ac9612cd2a7ceb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 44ea4e6df1acc4de1af2d1eaa73f4eb5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c3d922323367feb448e222ee2c35dc55, type: 2}

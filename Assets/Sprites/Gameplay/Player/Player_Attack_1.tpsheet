@@ -1,0 +1,25 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:149f3692a6cfe9f4f739cc6cc20ba5a1:39546df2eb732c0355440b09f2a9329a:ac2efd42bb75c55149c4073e53e00f71$
+#
+:format=40300
+:texture=Player_Attack_1.png
+:size=2048x2048
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+bom_12;547;467;543;486; 0.5;0.5; 0;0;0;0
+bom_13;1093;1014;543;486; 0.5;0.5; 0;0;0;0
+bom_14;1092;38;543;486; 0.5;0.5; 0;0;0;0
+bom_15;1093;526;543;486; 0.5;0.5; 0;0;0;0
+bua_00;1;955;544;545; 0.5;0.5; 0;0;0;0
+bua_01;547;1502;544;545; 0.5;0.5; 0;0;0;0
+bua_02;1;1502;544;545; 0.5;0.5; 0;0;0;0
+bua_03;1093;1502;544;545; 0.5;0.5; 0;0;0;0
+bua_04;547;955;544;545; 0.5;0.5; 0;0;0;0
+bua_05;1;408;544;545; 0.5;0.5; 0;0;0;0

@@ -854,6 +854,17 @@ MonoBehaviour:
   defaultAnimator: {fileID: 9100000, guid: 838e0b0680a9e4f7a9bc12bf1d40c883, type: 2}
   lsSkinAnimator:
   - {fileID: 22100000, guid: a694e39dca3ec4f468dcb66b7f5e92d9, type: 2}
+  - {fileID: 22100000, guid: 03623ae2ab5bff74cb27d2bb9d6f53ae, type: 2}
+  - {fileID: 22100000, guid: 69b8a5684269c8949bd834d99f1e1da8, type: 2}
+  - {fileID: 22100000, guid: eaa90ef8c87c9044699edffcdfcf2929, type: 2}
+  - {fileID: 22100000, guid: 90a68025f8898ef46b06aa6a37d79873, type: 2}
+  - {fileID: 22100000, guid: ba5483510faa8b140af9b1d07f36809c, type: 2}
+  - {fileID: 22100000, guid: a68a020bc7e96054b8eae0a6a46b07d2, type: 2}
+  - {fileID: 22100000, guid: 19d4ae89beb276c4e99db470e3a2a910, type: 2}
+  - {fileID: 22100000, guid: 73db1b810b5b5634dab196bdc692ef92, type: 2}
+  - {fileID: 22100000, guid: a5a059756b9388240afb61188bb24f74, type: 2}
+  - {fileID: 22100000, guid: ccac09bce87eb1149b35ff927a06bda8, type: 2}
+  - {fileID: 22100000, guid: bcd13ac3ad599c94e9bdac2a1a233cdb, type: 2}
 --- !u!58 &877608940
 CircleCollider2D:
   m_ObjectHideFlags: 0

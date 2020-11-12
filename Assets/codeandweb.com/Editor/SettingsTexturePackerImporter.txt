@@ -1,0 +1,57 @@
+version: 2
+importPivots: 1
+tpsheetFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Sprites/Gameplay/Enemy/Boss1_0.tpsheet
+- Assets/Sprites/Gameplay/Enemy/Boss1_1.tpsheet
+- Assets/Sprites/Gameplay/Enemy/Boss1_2.tpsheet
+- Assets/Sprites/Gameplay/Enemy/Boss1_3.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_0.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_1.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_2.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_3.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_4.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_5.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_6.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_Attack_0.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_Attack_1.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_Attack_2.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_Attack_3.tpsheet
+- Assets/Sprites/Gameplay/Player/Player_Attack_4.tpsheet
+textureFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Sprites/Gameplay/Enemy/Boss1_0.png
+- Assets/Sprites/Gameplay/Enemy/Boss1_1.png
+- Assets/Sprites/Gameplay/Enemy/Boss1_2.png
+- Assets/Sprites/Gameplay/Enemy/Boss1_3.png
+- Assets/Sprites/Gameplay/Player/Player_0.png
+- Assets/Sprites/Gameplay/Player/Player_1.png
+- Assets/Sprites/Gameplay/Player/Player_2.png
+- Assets/Sprites/Gameplay/Player/Player_3.png
+- Assets/Sprites/Gameplay/Player/Player_4.png
+- Assets/Sprites/Gameplay/Player/Player_5.png
+- Assets/Sprites/Gameplay/Player/Player_6.png
+- Assets/Sprites/Gameplay/Player/Player_Attack_0.png
+- Assets/Sprites/Gameplay/Player/Player_Attack_1.png
+- Assets/Sprites/Gameplay/Player/Player_Attack_2.png
+- Assets/Sprites/Gameplay/Player/Player_Attack_3.png
+- Assets/Sprites/Gameplay/Player/Player_Attack_4.png
+normalmapFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+enableDebugOutput: 0

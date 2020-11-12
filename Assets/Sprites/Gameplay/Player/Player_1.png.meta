@@ -1,0 +1,1460 @@
+fileFormatVersion: 2
+guid: 6c636fbf2145acd4fb95a10c551402bd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1308629933377968031
+    second: skin_1_die (1)
+  - first:
+      213: -4643516815234114424
+    second: skin_1_die (2)
+  - first:
+      213: -5443761633971937114
+    second: skin_1_die (3)
+  - first:
+      213: -3863113449754332978
+    second: skin_1_die (4)
+  - first:
+      213: 6896997161412374215
+    second: skin_1_die (5)
+  - first:
+      213: -4944886236069152393
+    second: skin_1_die (6)
+  - first:
+      213: 8370053867788500408
+    second: skin_1_die (7)
+  - first:
+      213: 6661085910392850904
+    second: skin_1_die (8)
+  - first:
+      213: -2004066640188076407
+    second: skin_1_walk (1)
+  - first:
+      213: -6274446967514427148
+    second: skin_1_walk (2)
+  - first:
+      213: -7603728315154606848
+    second: skin_1_walk (3)
+  - first:
+      213: -3829577863068184481
+    second: skin_1_walk (4)
+  - first:
+      213: -3299756707573678568
+    second: skin_1_walk (5)
+  - first:
+      213: -6588558670702383409
+    second: skin_1_walk (6)
+  - first:
+      213: -7885103643599426371
+    second: skin_1_walk (7)
+  - first:
+      213: -6732107745472663533
+    second: skin_1_walk (8)
+  - first:
+      213: 4080562617546540513
+    second: skin_1_walk (9)
+  - first:
+      213: 6890148326147851656
+    second: skin_1_walk (10)
+  - first:
+      213: -5136023444870057962
+    second: skin_1_walk (11)
+  - first:
+      213: -688379179799536775
+    second: skin_2_die (1)
+  - first:
+      213: 2819614279440975074
+    second: skin_2_die (2)
+  - first:
+      213: 4297043667043052055
+    second: skin_2_die (3)
+  - first:
+      213: 360389363753561305
+    second: skin_2_die (4)
+  - first:
+      213: -235321444242034927
+    second: skin_2_die (5)
+  - first:
+      213: -608457159796862976
+    second: skin_2_die (6)
+  - first:
+      213: -4876513505331393041
+    second: skin_2_die (7)
+  - first:
+      213: 2106827656056598177
+    second: skin_2_die (8)
+  - first:
+      213: -4092505621005754516
+    second: skin_2_idle (1)
+  - first:
+      213: -7759906525432485186
+    second: skin_2_idle (2)
+  - first:
+      213: -8706696623597946281
+    second: skin_2_idle (3)
+  - first:
+      213: 4612511471963090957
+    second: skin_2_idle (4)
+  - first:
+      213: -6864040217204336366
+    second: skin_2_idle (5)
+  - first:
+      213: 3038302266994403965
+    second: skin_2_idle (6)
+  - first:
+      213: -7392370658543670199
+    second: skin_2_idle (7)
+  - first:
+      213: -8432540573904115440
+    second: skin_2_idle (8)
+  - first:
+      213: 6045944363907837501
+    second: skin_2_idle (9)
+  - first:
+      213: -881389389532748061
+    second: skin_2_idle (10)
+  - first:
+      213: -2272780986079011891
+    second: skin_2_idle (11)
+  - first:
+      213: 2568527535171219808
+    second: skin_2_walk (1)
+  - first:
+      213: 9195692404865250636
+    second: skin_2_walk (2)
+  - first:
+      213: -5022971536952565381
+    second: skin_2_walk (3)
+  - first:
+      213: -4287310371370670841
+    second: skin_2_walk (4)
+  - first:
+      213: -8722457862649790426
+    second: skin_2_walk (5)
+  - first:
+      213: 8230133750820255959
+    second: skin_2_walk (6)
+  - first:
+      213: 4232931699260786931
+    second: skin_2_walk (7)
+  - first:
+      213: 1798390960191560729
+    second: skin_2_walk (8)
+  - first:
+      213: 6302282451574554583
+    second: skin_2_walk (9)
+  - first:
+      213: 8365293653165945106
+    second: skin_2_walk (10)
+  - first:
+      213: 2354408174477935704
+    second: skin_2_walk (11)
+  - first:
+      213: -4083151439720197973
+    second: skin_3_die (1)
+  - first:
+      213: 2338805029700470808
+    second: skin_3_die (2)
+  - first:
+      213: -7832097592387575586
+    second: skin_3_die (3)
+  - first:
+      213: 4273547609556472536
+    second: skin_3_die (4)
+  - first:
+      213: 6645793205485293255
+    second: skin_3_die (5)
+  - first:
+      213: -7200169765726100867
+    second: skin_3_die (6)
+  - first:
+      213: 3671133886413310081
+    second: skin_3_die (7)
+  - first:
+      213: -8154474195999746101
+    second: skin_3_die (8)
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: -1
+    wrapV: -1
+    wrapW: -1
+  nPOTScale: 1
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: skin_1_die (1)
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 839
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 168209e4200d6dde0800000000000000
+      internalID: -1308629933377968031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_die (2)
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1323
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88cda671f0aee8fb0800000000000000
+      internalID: -4643516815234114424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_die (3)
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 839
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a0e33dd2afd374b0800000000000000
+      internalID: -5443761633971937114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_die (4)
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 355
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec0fb5cf8c6736ac0800000000000000
+      internalID: -3863113449754332978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_die (5)
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 597
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ceacde506e07bf50800000000000000
+      internalID: 6896997161412374215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_die (6)
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1081
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 779316cda2c306bb0800000000000000
+      internalID: -4944886236069152393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_die (7)
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 597
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bdfa6475a7682470800000000000000
+      internalID: 8370053867788500408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_die (8)
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 355
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d94353f75ee07c50800000000000000
+      internalID: 6661085910392850904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_walk (1)
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 839
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98e016d32002034e0800000000000000
+      internalID: -2004066640188076407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_walk (2)
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 1323
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f0964bf9bface8a0800000000000000
+      internalID: -6274446967514427148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_walk (3)
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1081
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00551a632612a7690800000000000000
+      internalID: -7603728315154606848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_walk (4)
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1323
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f501f18393b9adac0800000000000000
+      internalID: -3829577863068184481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_walk (5)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 597
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ebbdfd1c8e432d0800000000000000
+      internalID: -3299756707573678568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_walk (6)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 839
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcee6f2fbccb094a0800000000000000
+      internalID: -6588558670702383409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_walk (7)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1323
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbc2e12630c729290800000000000000
+      internalID: -7885103643599426371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_walk (8)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1807
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31032797cafb292a0800000000000000
+      internalID: -6732107745472663533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_walk (9)
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1807
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e58996b41211a830800000000000000
+      internalID: 4080562617546540513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_walk (10)
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 1565
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8858bc5a569be9f50800000000000000
+      internalID: 6890148326147851656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_1_walk (11)
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 1081
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 610317283ed29b8b0800000000000000
+      internalID: -5136023444870057962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_die (1)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1565
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b164d78c26276f0800000000000000
+      internalID: -688379179799536775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_die (2)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1081
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e4c2b98f38412720800000000000000
+      internalID: 2819614279440975074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_die (3)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 355
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a617ec27a22ab30800000000000000
+      internalID: 4297043667043052055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_die (4)
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1565
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dc2c57873c500500800000000000000
+      internalID: 360389363753561305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_die (5)
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 1807
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11febeba468fbbcf0800000000000000
+      internalID: -235321444242034927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_die (6)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 113
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 000d349df635e87f0800000000000000
+      internalID: -608457159796862976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_die (7)
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1565
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fedc354cdc4235cb0800000000000000
+      internalID: -4876513505331393041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_die (8)
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1807
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aee83a3794fc3d10800000000000000
+      internalID: 2106827656056598177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_idle (1)
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 113
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f99aa12df7437c0800000000000000
+      internalID: -4092505621005754516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_idle (2)
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 597
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eba6c5df0264f4490800000000000000
+      internalID: -7759906525432485186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_idle (3)
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 1565
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75af9570d899b2780800000000000000
+      internalID: -8706696623597946281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_idle (4)
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 839
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0036c0eebee20040800000000000000
+      internalID: 4612511471963090957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_idle (5)
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 1081
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2195a892ac70eb0a0800000000000000
+      internalID: -6864040217204336366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_idle (6)
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 1323
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7a277070d73a2a20800000000000000
+      internalID: 3038302266994403965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_idle (7)
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 839
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ceb717d06096990800000000000000
+      internalID: -7392370658543670199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_idle (8)
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 597
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 019606a860999fa80800000000000000
+      internalID: -8432540573904115440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_idle (9)
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 113
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3e608ebd5287e350800000000000000
+      internalID: 6045944363907837501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_idle (10)
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 597
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e62a10250da4c3f0800000000000000
+      internalID: -881389389532748061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_idle (11)
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 1081
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcb9f702cb57570e0800000000000000
+      internalID: -2272780986079011891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_walk (1)
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 1565
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061b0b14f2e35a320800000000000000
+      internalID: 2568527535171219808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_walk (2)
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 1323
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4530c77589ad9f70800000000000000
+      internalID: 9195692404865250636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_walk (3)
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 597
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b716b0ffff1da4ab0800000000000000
+      internalID: -5022971536952565381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_walk (4)
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 1807
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7056a90bee96084c0800000000000000
+      internalID: -4287310371370670841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_walk (5)
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 1565
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 620427899ca93f680800000000000000
+      internalID: -8722457862649790426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_walk (6)
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 1807
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d8389f8a0f473270800000000000000
+      internalID: 8230133750820255959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_walk (7)
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 113
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f80ee414f46eba30800000000000000
+      internalID: 4232931699260786931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_walk (8)
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 113
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91cdd7dcc0b25f810800000000000000
+      internalID: 1798390960191560729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_walk (9)
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 355
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7df7740bf74367750800000000000000
+      internalID: 6302282451574554583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_walk (10)
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 1081
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21139ce914e771470800000000000000
+      internalID: 8365293653165945106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_2_walk (11)
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 1323
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8548800b2c98ca020800000000000000
+      internalID: 2354408174477935704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_3_die (1)
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 1807
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba05a57266bb557c0800000000000000
+      internalID: -4083151439720197973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_3_die (2)
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 1807
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 818813278ca157020800000000000000
+      internalID: 2338805029700470808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_3_die (3)
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 355
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed0eb876cbcce4390800000000000000
+      internalID: -7832097592387575586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_3_die (4)
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 839
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d2555e98e0be4b30800000000000000
+      internalID: 4273547609556472536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_3_die (5)
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 1323
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cec7af95b99a3c50800000000000000
+      internalID: 6645793205485293255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_3_die (6)
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 1081
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7263670fbbd31c90800000000000000
+      internalID: -7200169765726100867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_3_die (7)
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 1565
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1888096b1dc72f230800000000000000
+      internalID: 3671133886413310081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skin_3_die (8)
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 355
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc798594cec75de80800000000000000
+      internalID: -8154474195999746101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
