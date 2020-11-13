@@ -9,6 +9,8 @@ public class HomeView : BaseView
 {
     [SerializeField]
     private TMP_InputField inpName;
+    [SerializeField]
+    private TextMeshProUGUI txtCoin;
 
     private int indexColor;
     private int indexHat;
@@ -168,9 +170,12 @@ public class HomeView : BaseView
         }
         DataAPIManager.Instance.SetHat(indexHat);       
         DataAPIManager.Instance.SetPet(indexPet);
+        AdManager.instance.DisplayInterstitialAD(() =>
+        {
+            // Gameplay view
+            ViewManager.Instance.SwitchView(ViewIndex.GameplayView);
+        });
         
-        // Gameplay view
-        ViewManager.Instance.SwitchView(ViewIndex.GameplayView);
     }
 
     public void OnBtnClick(int index)
@@ -188,6 +193,10 @@ public class HomeView : BaseView
             imgChar.sprite = defaultSpriteChar;
         }
         curIndexBtn = index;
+        if (index > 1)
+        {
+            AdManager.instance.DisplayInterstitialAD();
+        }
     }
 
     public void OnSelectItem(int indexItem, int indexOfList)
@@ -228,5 +237,10 @@ public class HomeView : BaseView
                 imgPet.sprite = lsPets[indexOfList - 1];
                 break;
         }
+    }
+
+    private void Update()
+    {
+        txtCoin.text = MissionControl.instance.curCoin.ToString();
     }
 }

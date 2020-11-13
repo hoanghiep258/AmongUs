@@ -54,7 +54,11 @@ public class GameOverDialog : BaseDialog
 
     public void OnGotoHome()
     {
+        Time.timeScale = 1;
         HubControl.instance.gameObject.SetActive(true);
+        MissionControl.instance.player.gameObject.SetActive(false);
+        AdManager.instance.DisplayInterstitialAD();
+        
         ViewManager.Instance.SwitchView(ViewIndex.HomeView);
         DialogManager.Instance.HideDialog(this);
 

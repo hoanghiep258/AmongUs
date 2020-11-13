@@ -52,7 +52,8 @@ public class PauseDialog : BaseDialog
     }
 
     public void OnGotoHome()
-    {        
+    {
+        AdManager.instance.DisplayInterstitialAD();
         MissionControl.instance.ClearAllEnemy();
         HubControl.instance.DeleteAllHub();
         MissionControl.instance.player.gameObject.SetActive(false);
@@ -74,6 +75,10 @@ public class PauseDialog : BaseDialog
         DataAPIManager.Instance.AddCoin(pauseDialogParam.valueCoin);
         HubControl.instance.gameObject.SetActive(true);
         Time.timeScale = 1;
+        AdManager.instance.DisplayInterstitialAD(()=>
+        {
+           
+        });
         // Restart game
         GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
         gameplayView.OnRestartGame();

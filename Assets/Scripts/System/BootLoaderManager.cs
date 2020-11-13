@@ -18,6 +18,7 @@ public class BootLoaderManager : MonoBehaviour
                     {
                         LoadSceneManager.Instance.OnLoadScene("Buffer", (obj) =>
                         {
+                            AdManager.instance.DisplayBanner();
                             ViewManager.Instance.SwitchView(ViewIndex.HomeView);
                         });
                     });

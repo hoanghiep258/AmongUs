@@ -71,7 +71,10 @@ public class ShopItem : MonoBehaviour
         else
         {
             // show ads
-            UnlockItem();
+            AdManager.instance.DisplayRewardAD(() =>
+            {
+                UnlockItem();
+            });            
         }
     }
 

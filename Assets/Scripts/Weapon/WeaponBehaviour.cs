@@ -35,8 +35,7 @@ public abstract class WeaponBehaviour : MonoBehaviour
     /// 
     protected abstract void Setup();
     public void SetupData(GunData data)
-    {
-        Debug.LogError("weapon " + transform.name);
+    {        
         this.gunData = data;        
         amoutAmo = gunData.amoutAmo;
         currentBullet = amoutAmo;        

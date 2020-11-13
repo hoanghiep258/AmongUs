@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108463987}
   - component: {fileID: 108463988}
+  - component: {fileID: 108463989}
   m_Layer: 0
   m_Name: BootLoaderManager
   m_TagString: Untagged
@@ -169,6 +170,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0e25e191a44e9489bd18e8a52a4c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &108463989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108463986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac1ece93271249e78cffe7aaabf9e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  APP_ID: ca-app-pub-3940256099942544/2934735716
+  banner_ID: ca-app-pub-3940256099942544/6300978111
+  interstitial_ID: ca-app-pub-3940256099942544/4411468910
+  video_ID: ca-app-pub-3940256099942544/1712485313
 --- !u!1 &276357644
 GameObject:
   m_ObjectHideFlags: 0

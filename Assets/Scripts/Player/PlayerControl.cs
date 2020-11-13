@@ -53,6 +53,7 @@ public class PlayerControl : MonoBehaviour
 
         GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
         GetComponent<CharacterInput>().joyStick = gameplayView.joyStick;
+        GetComponent<CharacterInput>().variableJoystick = gameplayView.variableJoystick;
         GetComponent<CharacterHealth>().Setup(20);
         GetComponent<CharacterDataBinding>().Speed = 0;
     }

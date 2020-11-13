@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameplayView : BaseView
 {
@@ -11,12 +12,17 @@ public class GameplayView : BaseView
     private List<int> lsSkillCounts = new List<int>();
     private int[] lsDefaultSkillCounts = { 10, 20, 5, 15 };
 
+    public VariableJoystick variableJoystick;
     public JoyStick joyStick;
     [SerializeField]
     private TextMeshProUGUI txtCoin;
 
     [SerializeField]
     private GameObject goWarning;
+
+    [SerializeField]
+    private List<Button> lsButtonSkills = new List<Button>();
+
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
         base.OnSetUp(param, callback);
@@ -46,6 +52,7 @@ public class GameplayView : BaseView
 
     public void OnPauseGame()
     {
+        AdManager.instance.DisplayInterstitialAD();
         HubControl.instance.gameObject.SetActive(false);
         DialogManager.Instance.ShowDialog(DialogIndex.PauseDialog, new PauseDialogParam
         {
@@ -58,11 +65,23 @@ public class GameplayView : BaseView
     public void OnClickSkill(int index)
     {
         if (lsSkillCounts[index] <= 0)
+        {            
             return;
+        }
+            
         if (MissionControl.instance.lsEnemyControls.Count <= 0)
         {
             return;
         }
+        if (lsSkillCounts[index] <= 1)
+        {
+            lsButtonSkills[index].interactable = false;
+        }
+        else
+        {
+            lsButtonSkills[index].interactable = true;
+        }
+        
         MissionControl.instance.player.GetComponent<CharacterDataBinding>().Attack = index;
         lsSkillCounts[index]--;
         lsTxtSkillCounts[index].text = lsSkillCounts[index].ToString();
@@ -72,6 +91,7 @@ public class GameplayView : BaseView
 
     public void OnCollectSkill(int index)
     {
+        lsButtonSkills[index].interactable = true;
         lsSkillCounts[index]++;
         lsTxtSkillCounts[index].text = lsSkillCounts[index].ToString();
     }
