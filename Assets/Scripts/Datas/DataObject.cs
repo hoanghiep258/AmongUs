@@ -42,7 +42,7 @@ public class PlayerInfo
         this.color = 0;
         this.hat = 0;
         this.pet = 0;
-        this.skin = 0;
+        this.skin = -1;
 
         this.lsBoughtColor = "0-1-2-3";
         this.lsBoughtHat = "0";

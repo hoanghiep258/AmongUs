@@ -82,8 +82,7 @@ public class HomeView : BaseView
 
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
-        OnBtnClick(0);
-        DataAPIManager.Instance.AddCoin(100);
+        OnBtnClick(0);        
         string[] lsBoughtColor = DataAPIManager.Instance.GetLsBoughtColor();
         if (lsBoughtColor != null)
         {
@@ -123,7 +122,7 @@ public class HomeView : BaseView
                 lsPetItems[index].OnSetup(true);
             }
         }
-        inpName.text = DataAPIManager.Instance.GetName();
+        //inpName.text = DataAPIManager.Instance.GetName();
 
         indexColor = DataAPIManager.Instance.GetColor();
         indexHat = DataAPIManager.Instance.GetHat();
@@ -156,7 +155,11 @@ public class HomeView : BaseView
     }
 
     public void OnStartGamePlay()
-    {        
+    {
+        if (string.IsNullOrEmpty(inpName.text))
+        {
+            inpName.text = "Player";
+        }    
         DataAPIManager.Instance.SetName(inpName.text);
         if (curIndexBtn == 0)
         {
