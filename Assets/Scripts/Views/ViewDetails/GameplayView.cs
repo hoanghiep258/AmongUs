@@ -22,10 +22,14 @@ public class GameplayView : BaseView
 
     [SerializeField]
     private List<Button> lsButtonSkills = new List<Button>();
+    private bool isClick;
+    [SerializeField]
+    private AudioSource countdownAudioSource;
 
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
         base.OnSetUp(param, callback);
+        isClick = false;
         MissionControl.instance.player.GetComponent<CharacterDataBinding>().Attack = -1;
         lsSkillCounts.Clear();
         
@@ -52,6 +56,7 @@ public class GameplayView : BaseView
 
     public void OnPauseGame()
     {
+        SoundManager.instance.PlaySound(SoundIndex.Click);
         AdManager.instance.DisplayInterstitialAD();
         HubControl.instance.gameObject.SetActive(false);
         DialogManager.Instance.ShowDialog(DialogIndex.PauseDialog, new PauseDialogParam
@@ -64,6 +69,9 @@ public class GameplayView : BaseView
 
     public void OnClickSkill(int index)
     {
+        if (isClick)
+            return;
+
         if (lsSkillCounts[index] <= 0)
         {            
             return;
@@ -73,6 +81,7 @@ public class GameplayView : BaseView
         {
             return;
         }
+        isClick = true;
         if (lsSkillCounts[index] <= 1)
         {
             lsButtonSkills[index].interactable = false;
@@ -83,7 +92,7 @@ public class GameplayView : BaseView
         }
         
         MissionControl.instance.player.GetComponent<CharacterDataBinding>().Attack = index;
-        lsSkillCounts[index]--;
+        lsSkillCounts[index] = MissionControl.instance.player.GetComponent<WeaponControl>().lsGun[index].currentBullet;
         lsTxtSkillCounts[index].text = lsSkillCounts[index].ToString();
         MissionControl.instance.player.GetComponent<WeaponControl>().OnChangeGun(index);
         OnFire();
@@ -97,7 +106,8 @@ public class GameplayView : BaseView
     }
 
     public void OnFire()
-    {        
+    {
+        
         StopCoroutine("DelayFire");
         StartCoroutine(DelayFire(0.5f));
     }
@@ -115,7 +125,10 @@ public class GameplayView : BaseView
     IEnumerator CountdownBoss()
     {
         goWarning.SetActive(true);
-        yield return new WaitForSecondsRealtime(5f);
+        yield return new WaitForSecondsRealtime(2f);
+        countdownAudioSource.Play();
+        yield return new WaitForSecondsRealtime(3f);
+        countdownAudioSource.Pause();        
         goWarning.SetActive(false);
         MissionControl.instance.ShowBoss();
 
@@ -125,6 +138,8 @@ public class GameplayView : BaseView
     {
         yield return new WaitForSecondsRealtime(timer);
         CharacterInput.isFire = true;
+        yield return new WaitForSecondsRealtime(timer);
         MissionControl.instance.player.GetComponent<CharacterDataBinding>().Attack = -1;
+        isClick = false;
     }
 }

@@ -24,6 +24,9 @@ public class Boss1Control : EnemyControl
     public RuntimeAnimatorController defaultAnimator;
 
     public List<AnimatorOverrideController> lsSkinAnimator;
+
+    public AudioSource bossAudioSource;
+    
     public override void OnSetup(object dataInit, int maxHP)
     {
         base.OnSetup(dataInit, maxHP);        
@@ -96,9 +99,18 @@ public class Boss1Control : EnemyControl
         bullet.position = trans.position;
         Vector3 dir = playerTrans.position - bullet.position;
         dir.Normalize();
-        bullet.up = dir;
-
-        bullet.GetComponent<BulletEnemy>().Setup(dir, 20);
+        
+        if (indexBoss < 2)
+        {
+            bullet.up = dir;
+            bullet.GetComponent<BulletEnemy>().Setup(dir, 20);
+        }
+        else
+        {
+            bullet.SetParent(trans);
+            bullet.position = Vector3.zero;
+            bullet.GetComponent<Lazer>().Setup(goHand.transform.position, 20);
+        }
     }
 
     public override void Ondamage(int damage)

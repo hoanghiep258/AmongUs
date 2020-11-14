@@ -56,6 +56,7 @@ public class CharacterHealth : MonoBehaviour {
             if (timer > 1.2f)
             {
                 timer = -100;
+                SoundManager.instance.PlaySound(SoundIndex.Game_over);
                 DialogManager.Instance.ShowDialog(DialogIndex.GameOverDialog, new GameOverDialogParam { valueCoin = MissionControl.instance.curCoin, valueKill = MissionControl.instance.totalEnemyDead });
             }
         }

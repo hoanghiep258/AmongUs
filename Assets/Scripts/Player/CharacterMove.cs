@@ -10,10 +10,13 @@ public class CharacterMove : MonoBehaviour
     public LayerMask layerObstacleMask;
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private AudioSource playerAudioSource;
     private void Awake()
     {
         //dataBinding.Setup(animatorOverrideController);
         //GetComponent<WeaponControl>().OnChangeGunHandle += ChangeGunHandle;
+        playerAudioSource = GetComponent<AudioSource>();
     }
     // Use this for initialization
     //void ChangeGunHandle(WeaponBehaviour weapon_){
@@ -50,13 +53,19 @@ public class CharacterMove : MonoBehaviour
             RaycastHit2D hit2D= Physics2D.Raycast(transform.position, dir2, 1, layerObstacleMask);
             if(hit2D.collider!=null)
             {
-                Debug.Log(hit2D.transform.name);
+
             }
             else
             {
-                transform.Translate(dir2 * Time.deltaTime * speed, Space.Self);
-
+                transform.Translate(dir2 * Time.deltaTime * speed, Space.Self);                
             }
+            playerAudioSource.Play();
+            //SoundManager.instance.PlaySound(SoundIndex.Player_walk);
+        }
+        else
+        {
+            //SoundManager.instance.PauseSound(SoundIndex.Player_walk);
+            playerAudioSource.Pause();
         }
         dataBinding.Speed = dir2.magnitude;
 		

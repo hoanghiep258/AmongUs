@@ -18,6 +18,10 @@ public class BootLoaderManager : MonoBehaviour
                     {
                         LoadSceneManager.Instance.OnLoadScene("Buffer", (obj) =>
                         {
+                            if (UnityEngine.iOS.Device.generation.ToString().Contains("iPad"))
+                            {
+                                Camera.main.orthographicSize = 7;
+                            }
                             AdManager.instance.DisplayBanner();
                             ViewManager.Instance.SwitchView(ViewIndex.HomeView);
                         });

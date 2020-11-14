@@ -17,8 +17,9 @@ public class B1_FSM_WalkState : FSMState
 	{		
 		timeWait = 0;
 		randomTime = Random.Range(3f, 5f);
-		parent.agent.SetDestination(parent.playerTrans.position);		
-		base.OnEnter ();
+		parent.agent.SetDestination(parent.playerTrans.position);
+        parent.bossAudioSource.Play();
+        base.OnEnter ();
 	}
 
 	public override void OnFixedUpdate()
@@ -33,6 +34,7 @@ public class B1_FSM_WalkState : FSMState
 
 	public override void OnExit()
 	{
-		timeWait = 0;
+        parent.bossAudioSource.Pause();
+        timeWait = 0;
 	}
 }

@@ -59,14 +59,13 @@ public class AdManager : MonoBehaviour
         //AdRequest adRequest = new AdRequest.Builder().Build();        
 
         // test
-        AdRequest adRequest = new AdRequest.Builder()
-            .AddTestDevice("2077ef9a63d2b398840261c8221a0c9b")
+        AdRequest adRequest = new AdRequest.Builder()            
             .Build();
 
         bannerAD.LoadAd(adRequest);
     }
 
-    private void RequestInterstitial()
+    public void RequestInterstitial()
     {
         // test
         //string interstitial_ID = "ca-app-pub-3940256099942544/4411468910";
@@ -78,8 +77,7 @@ public class AdManager : MonoBehaviour
         //AdRequest adRequest = new AdRequest.Builder().Build();
        
         //test
-       AdRequest adRequest = new AdRequest.Builder()
-           .AddTestDevice("2077ef9a63d2b398840261c8221a0c9b")
+       AdRequest adRequest = new AdRequest.Builder()           
            .Build();
 
         interstitialAd.LoadAd(adRequest);
@@ -98,8 +96,7 @@ public class AdManager : MonoBehaviour
         //AdRequest adRequest = new AdRequest.Builder().Build();
 
         //test
-        AdRequest adRequest = new AdRequest.Builder()
-           .AddTestDevice("2077ef9a63d2b398840261c8221a0c9b")
+        AdRequest adRequest = new AdRequest.Builder()           
            .Build();
 
         rewardVideoAd.LoadAd(adRequest, video_ID);
@@ -113,14 +110,23 @@ public class AdManager : MonoBehaviour
     public void DisplayInterstitialAD(Action callback = null)
     {
         interstitalActionCallback = null;
-        Debug.LogError("DisplayInterstitialAD");
+
         if (interstitialAd.IsLoaded())
         {
+            Debug.LogError("DisplayInterstitialAD");
             if (callback != null)
             {
                 interstitalActionCallback = callback;
             }
             interstitialAd.Show();
+        }
+        else
+        {
+            RequestInterstitial();
+            if (callback != null)
+            {
+                callback();
+            }
         }
     }
 
@@ -213,17 +219,16 @@ public class AdManager : MonoBehaviour
 
     public void HandleOnInterstitialAdOpened(object sender, EventArgs args)
     {
-        RequestInterstitial();
         MonoBehaviour.print("HandleAdOpened event received");
     }
 
     public void HandleOnInterstitialAdClosed(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleAdClosed event received");
-        RequestInterstitial();
         if (interstitalActionCallback != null)
         {
-            interstitalActionCallback();            
+            interstitalActionCallback();
+            RequestInterstitial();
         }
     }
 

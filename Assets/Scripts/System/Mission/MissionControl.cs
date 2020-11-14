@@ -7,7 +7,7 @@ public class MissionControl : MonoBehaviour
     public static MissionControl instance;
     public MissionData dataModel;
 
-    private const int valueAppearBoss = 3;
+    private const int valueAppearBoss = 100;
     private const float timerCreateEnemy = 1;
 
     public PlayerControl player;
@@ -114,7 +114,7 @@ public class MissionControl : MonoBehaviour
     public void ShowBoss()
     {
         // Show Boss        
-        int indexBoss = Random.Range(0, 2);        
+        int indexBoss = Random.Range(0, 3);        
         GameObject goBoss = Instantiate(Resources.Load("Enemy/Boss1", typeof(GameObject))) as GameObject;
         goBoss.transform.position = ConfigScene.instance.posBoss.position;
         EnemyControl enemyControl = goBoss.GetComponent<EnemyControl>();
@@ -127,8 +127,8 @@ public class MissionControl : MonoBehaviour
 
     private void OnBossDeadCallback(EnemyControl enemy)
     {
-        dataModel.currentEnemy--;
-        dataModel.totalEnemyDie++;
+        //dataModel.currentEnemy--;
+        //dataModel.totalEnemyDie++;
         totalEnemyDead++;
         OnUpdateEnemy(enemy);
         StartCoroutine("LoopCreateEnemy");

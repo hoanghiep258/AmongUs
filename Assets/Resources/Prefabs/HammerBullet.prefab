@@ -132,7 +132,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 256
-  isAoe: 1
+  isAoe: 0
   radius: 2
 --- !u!58 &-3730060546527797734
 CircleCollider2D:

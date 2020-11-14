@@ -16,7 +16,7 @@ public abstract class WeaponBehaviour : MonoBehaviour
     public event ReloadHandle OnReloadHandle;
     public event UpdateBulletHandle OnUpdateBulletHandle;
 
-    public const float rof = 1;        
+    public const float rof = 1f;        
     public int amoutAmo;
     public const int damage = 1;
     public int currentBullet;

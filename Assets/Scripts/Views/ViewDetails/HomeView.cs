@@ -20,6 +20,8 @@ public class HomeView : BaseView
     [SerializeField]
     private Image imgChar;
     [SerializeField]
+    private Image imgCharSkin;
+    [SerializeField]
     private Sprite defaultSpriteChar;
     [SerializeField]
     private Image imgPet;
@@ -65,9 +67,10 @@ public class HomeView : BaseView
     [SerializeField]
     private RectTransform rectShop;
 
+    [SerializeField]
+    private List<GridLayoutGroup> lsGridLayoutGroups = new List<GridLayoutGroup>();
     private void Start()
-    {
-        Debug.LogError((float)Screen.width / (float)Screen.height);
+    {        
         if (((float)Screen.width / (float)Screen.height) < 2)
         {
             
@@ -77,12 +80,19 @@ public class HomeView : BaseView
 
             rectShop.sizeDelta = new Vector2(1032.5f, rectShop.sizeDelta.y);
             rectShop.localPosition = new Vector3(320f, 0, 0);
+            for(int i = 0; i < lsGridLayoutGroups.Count; i++)
+            {
+                lsGridLayoutGroups[i].cellSize = new Vector2(210, 210);
+            }
         }
     }
 
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
-        OnBtnClick(0);        
+        DataAPIManager.Instance.AddCoin(1000);
+        for (int i = 1; i < 11; i++)
+        DataAPIManager.Instance.AddSkin(i.ToString());
+        //OnBtnClick(0);        
         string[] lsBoughtColor = DataAPIManager.Instance.GetLsBoughtColor();
         if (lsBoughtColor != null)
         {
@@ -128,13 +138,15 @@ public class HomeView : BaseView
         indexHat = DataAPIManager.Instance.GetHat();
         indexSkin = DataAPIManager.Instance.GetSkin();
         indexPet = DataAPIManager.Instance.GetPet();
-        Debug.LogError("index " + indexColor + " " + indexSkin);
+        Debug.LogError(indexColor + " " + indexSkin);
         if (indexColor < 0)
         {
-            indexColor = 0;
+            //indexColor = 0;
+            imgHat.gameObject.SetActive(false);
         }
         else
         {
+            OnBtnClick(0);
             lsColorItems[indexColor].OnClick();
         }
         
@@ -142,10 +154,12 @@ public class HomeView : BaseView
 
         if (indexSkin < 0)
         {
-            indexSkin = 0;
+            //indexSkin = 0;            
+            imgHat.gameObject.SetActive(true);
         }
         else
         {
+            OnBtnClick(2);
             lsSkinItems[indexSkin].OnClick();
         }
         
@@ -156,25 +170,27 @@ public class HomeView : BaseView
 
     public void OnStartGamePlay()
     {
+        SoundManager.instance.PlaySound(SoundIndex.Click);
         if (string.IsNullOrEmpty(inpName.text))
         {
             inpName.text = "Player";
         }    
         DataAPIManager.Instance.SetName(inpName.text);
-        if (curIndexBtn == 0)
-        {
+        //if (curIndexBtn == 0)
+        //{
             DataAPIManager.Instance.SetColor(indexColor);
-            DataAPIManager.Instance.SetSkin(-1);
-        }       
-        else
-        {
-            DataAPIManager.Instance.SetColor(-1);
+        //    DataAPIManager.Instance.SetSkin(-1);
+        //}       
+        //else
+        //{
+        //    DataAPIManager.Instance.SetColor(-1);
             DataAPIManager.Instance.SetSkin(indexSkin);
-        }
+        //}
         DataAPIManager.Instance.SetHat(indexHat);       
         DataAPIManager.Instance.SetPet(indexPet);
         AdManager.instance.DisplayInterstitialAD(() =>
         {
+            Debug.LogError("gameplay view");
             // Gameplay view
             ViewManager.Instance.SwitchView(ViewIndex.GameplayView);
         });
@@ -191,14 +207,30 @@ public class HomeView : BaseView
 
         lsImageBtnShops[index].sprite = lsBtnSpriteOns[index];
         lsPnlShops[index].SetActive(true);
-        if (index == 0)
-        {
-            imgChar.sprite = defaultSpriteChar;
-        }
+
+        SoundManager.instance.PlaySound(SoundIndex.Click);
+
         curIndexBtn = index;
         if (index > 1)
         {
             AdManager.instance.DisplayInterstitialAD();
+        }
+        switch (index)
+        {
+            case 0:
+                imgChar.gameObject.SetActive(true);
+                imgChar.sprite = defaultSpriteChar;
+                imgHat.gameObject.SetActive(true);
+                imgCharSkin.gameObject.SetActive(false);
+                indexSkin = -1;
+                OnSelectItem(0, 1);
+                break;
+            case 2:
+                imgCharSkin.gameObject.SetActive(true);
+                imgChar.gameObject.SetActive(false);
+                imgHat.gameObject.SetActive(false);
+                indexColor = -1;
+                break;
         }
     }
 
@@ -212,7 +244,8 @@ public class HomeView : BaseView
                 {
                     lsColorItems[i].UnchooseItem();
                 }
-                imgChar.color = lsColors[indexOfList - 1];               
+                imgChar.color = lsColors[indexOfList - 1];
+                //imgChar.SetNativeSize();
                 break;
             case 1:
                 indexHat = indexOfList - 1;
@@ -225,7 +258,8 @@ public class HomeView : BaseView
             case 2:
                 indexSkin = indexOfList - 1;
                 imgChar.color = Color.white;
-                imgChar.sprite = lsSkins[indexOfList - 1];              
+                imgCharSkin.sprite = lsSkins[indexOfList - 1];
+                //imgChar.SetNativeSize();
                 for (int i = 0; i < lsSkinItems.Count; i++)
                 {
                     lsSkinItems[i].UnchooseItem();
@@ -244,6 +278,6 @@ public class HomeView : BaseView
 
     private void Update()
     {
-        txtCoin.text = MissionControl.instance.curCoin.ToString();
+        txtCoin.text = DataAPIManager.Instance.GetCoin().ToString();
     }
 }

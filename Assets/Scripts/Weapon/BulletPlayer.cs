@@ -69,9 +69,11 @@ public class BulletPlayer : MonoBehaviour {
             if (!isAoe)
             {
                 Destroy(gameObject);
+                SoundManager.instance.PlaySound(SoundIndex.Enemy_kill);
             }  
             else
             {
+                SoundManager.instance.PlaySound(SoundIndex.Gernade);
                 isHit = true;
                 
             }

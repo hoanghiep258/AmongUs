@@ -17,7 +17,11 @@ public class PauseDialog : BaseDialog
     private Slider sliderHP;
 
     [SerializeField]
+    private List<Sprite> lsSkin = new List<Sprite>();
+    [SerializeField]
     private Image imgChar;
+    [SerializeField]
+    private Sprite spriteDefaultChar;
 
     private PauseDialogParam pauseDialogParam;
 
@@ -36,6 +40,17 @@ public class PauseDialog : BaseDialog
         {
             Time.timeScale = 0;
         });
+
+        int indexSkin = DataAPIManager.Instance.GetSkin();
+        if (indexSkin < 0)
+        {
+            imgChar.sprite = spriteDefaultChar;
+        }
+        else
+        {
+            imgChar.sprite = lsSkin[indexSkin];
+        }
+
         base.OnSetUp(param);
     }
 
