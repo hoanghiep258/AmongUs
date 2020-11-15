@@ -9,14 +9,11 @@ public class CharacterMove : MonoBehaviour
     //private WeaponBehaviour weapon;
     public LayerMask layerObstacleMask;
     [SerializeField]
-    private float speed;
-    [SerializeField]
-    private AudioSource playerAudioSource;
+    private float speed;        
     private void Awake()
     {
         //dataBinding.Setup(animatorOverrideController);
-        //GetComponent<WeaponControl>().OnChangeGunHandle += ChangeGunHandle;
-        playerAudioSource = GetComponent<AudioSource>();
+        //GetComponent<WeaponControl>().OnChangeGunHandle += ChangeGunHandle;        
     }
     // Use this for initialization
     //void ChangeGunHandle(WeaponBehaviour weapon_){
@@ -58,14 +55,12 @@ public class CharacterMove : MonoBehaviour
             else
             {
                 transform.Translate(dir2 * Time.deltaTime * speed, Space.Self);                
-            }
-            playerAudioSource.Play();
+            }            
             //SoundManager.instance.PlaySound(SoundIndex.Player_walk);
         }
         else
         {
-            //SoundManager.instance.PauseSound(SoundIndex.Player_walk);
-            playerAudioSource.Pause();
+            //SoundManager.instance.PauseSound(SoundIndex.Player_walk);            
         }
         dataBinding.Speed = dir2.magnitude;
 		

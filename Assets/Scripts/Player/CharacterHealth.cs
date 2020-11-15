@@ -53,10 +53,11 @@ public class CharacterHealth : MonoBehaviour {
         if (curHP <= 0)
         {
             timer += Time.deltaTime;
+            GetComponent<WeaponControl>().HideAllGun();
             if (timer > 1.2f)
             {
                 timer = -100;
-                SoundManager.instance.PlaySound(SoundIndex.Game_over);
+                SoundManager.instance.PlaySound(SoundIndex.Game_over);                
                 DialogManager.Instance.ShowDialog(DialogIndex.GameOverDialog, new GameOverDialogParam { valueCoin = MissionControl.instance.curCoin, valueKill = MissionControl.instance.totalEnemyDead });
             }
         }

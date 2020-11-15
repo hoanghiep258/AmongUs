@@ -8,7 +8,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
     [SerializeField]
     private List<AudioClip> lsSounds = new List<AudioClip>();
-    
+    public bool isMute;
     private void Awake()
     {
         instance = this;
@@ -16,6 +16,8 @@ public class SoundManager : MonoBehaviour
     
     public void PlaySound(SoundIndex soundIndex, bool isLoop = false)
     {
+        if (isMute)
+            return;
         EazySoundManager.PlaySound(lsSounds[(int)soundIndex], isLoop);
     }
 
@@ -29,6 +31,20 @@ public class SoundManager : MonoBehaviour
             audio.Stop();
         }
         
+    }
+
+    public void Mute()
+    {
+        isMute = true;
+    }
+
+    public void Unmute()
+    {
+        for (SoundIndex i = SoundIndex.Countdown; i < SoundIndex.Game_over; i++)
+        {
+            PauseSound(i);
+        }
+        isMute = false;
     }
 }
 

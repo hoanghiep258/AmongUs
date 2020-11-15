@@ -26,7 +26,8 @@ public class Boss1Control : EnemyControl
     public List<AnimatorOverrideController> lsSkinAnimator;
 
     public AudioSource bossAudioSource;
-    
+
+    public List<int> lsBossDame = new List<int>();
     public override void OnSetup(object dataInit, int maxHP)
     {
         base.OnSetup(dataInit, maxHP);        
@@ -87,7 +88,7 @@ public class Boss1Control : EnemyControl
 
     public void OnEndAttack()
     {        
-        characterHealth.OnDamage(5);
+        characterHealth.OnDamage(lsBossDame[indexBoss]);
         goHand.SetActive(false);
         agent.maxSpeed = speed;
         GotoState(walkState);        

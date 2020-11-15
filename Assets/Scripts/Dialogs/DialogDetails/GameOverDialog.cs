@@ -59,7 +59,8 @@ public class GameOverDialog : BaseDialog
         HubControl.instance.gameObject.SetActive(true);
         MissionControl.instance.player.gameObject.SetActive(false);
         AdManager.instance.DisplayInterstitialAD();
-        
+        AdManager.instance.RequestInterstitial();
+
         ViewManager.Instance.SwitchView(ViewIndex.HomeView);
         DialogManager.Instance.HideDialog(this);
 

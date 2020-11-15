@@ -17,6 +17,7 @@ public class MissionControl : MonoBehaviour
     public KdTree<Transform> enemyKdTree = new KdTree<Transform>();
     public int totalEnemyDead = 0;
     public int curCoin;
+    public List<int> lsHPBoss = new List<int>();    
     // Start is called before the first frame update
     void Awake()
     {
@@ -119,7 +120,7 @@ public class MissionControl : MonoBehaviour
         goBoss.transform.position = ConfigScene.instance.posBoss.position;
         EnemyControl enemyControl = goBoss.GetComponent<EnemyControl>();
         enemyControl.OnEnemyDead += OnBossDeadCallback;
-        enemyControl.OnSetup(null, 3 + indexBoss * 2);
+        enemyControl.OnSetup(null, lsHPBoss[indexBoss]);
         enemyControl.GetComponent<Boss1Control>().OnSetupBoss(indexBoss);
         lsEnemyControls.Add(enemyControl);
         enemyKdTree.Add(enemyControl.transform);

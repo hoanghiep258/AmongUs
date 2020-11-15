@@ -10,6 +10,7 @@ public class BulletEnemy : MonoBehaviour {
     private bool isHit = false;
     private float timer = 0;
     public float radius;
+    
 	// Use this for initialization
 	void Awake () {
 	}

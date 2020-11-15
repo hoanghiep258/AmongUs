@@ -18,13 +18,25 @@ public class B1_FSM_WalkState : FSMState
 		timeWait = 0;
 		randomTime = Random.Range(3f, 5f);
 		parent.agent.SetDestination(parent.playerTrans.position);
-        parent.bossAudioSource.Play();
+        if (!SoundManager.instance.isMute)
+        {
+            parent.bossAudioSource.Play();
+        }
+        
         base.OnEnter ();
 	}
 
 	public override void OnFixedUpdate()
 	{
-		parent.dataBinding.Speed = 1;
+        if (!SoundManager.instance.isMute)
+        {
+            parent.bossAudioSource.UnPause();
+        }
+        else
+        {
+            parent.bossAudioSource.Pause();
+        }
+        parent.dataBinding.Speed = 1;
 		timeWait += Time.deltaTime;
 		if (timeWait >= randomTime)
 		{			

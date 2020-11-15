@@ -19,7 +19,7 @@ public class Hammer : WeaponBehaviour {
     public void OnShootBullet()
     {
         CallEventShoot();
-        Transform bullet = Instantiate(bulletPrefab);
+        Transform bullet = Instantiate(bulletPrefab, MissionControl.instance.transform);
         posShoot = MissionControl.instance.enemyKdTree.FindClosest(aimPos.position);
         if (posShoot != null)
         {

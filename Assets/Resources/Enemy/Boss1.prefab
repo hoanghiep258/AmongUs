@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 6493911825701978680}
   m_Layer: 8
   m_Name: Boss1
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +183,7 @@ MonoBehaviour:
   - {fileID: 22100000, guid: 9a27a2e47e3a24d98af3a1cbbbeaad6c, type: 2}
   - {fileID: 22100000, guid: f44fcb1018c9d7b4fac4bf1613e296d8, type: 2}
   bossAudioSource: {fileID: 6493911825701978680}
+  lsBossDame: 04000000070000000a000000
 --- !u!114 &6914668766701950431
 MonoBehaviour:
   m_ObjectHideFlags: 0

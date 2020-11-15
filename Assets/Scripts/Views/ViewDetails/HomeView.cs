@@ -66,9 +66,12 @@ public class HomeView : BaseView
     private RectTransform rectChar;
     [SerializeField]
     private RectTransform rectShop;
+    [SerializeField]
+    private RectTransform rectCoin;
 
     [SerializeField]
     private List<GridLayoutGroup> lsGridLayoutGroups = new List<GridLayoutGroup>();
+    private bool isStart = false;
     private void Start()
     {        
         if (((float)Screen.width / (float)Screen.height) < 2)
@@ -85,14 +88,17 @@ public class HomeView : BaseView
                 lsGridLayoutGroups[i].cellSize = new Vector2(210, 210);
             }
         }
-    }
+        if (UnityEngine.iOS.Device.generation.ToString().Contains("iPad"))
+        {
+            rectCoin.localPosition = new Vector3(-350, 450, 0);
+        }
+
+        }
 
     public override void OnSetUp(ViewParam param = null, Action callback = null)
     {
-        DataAPIManager.Instance.AddCoin(1000);
-        for (int i = 1; i < 11; i++)
-        DataAPIManager.Instance.AddSkin(i.ToString());
-        //OnBtnClick(0);        
+        //OnBtnClick(0);            
+        AdManager.instance.HideBanner();
         string[] lsBoughtColor = DataAPIManager.Instance.GetLsBoughtColor();
         if (lsBoughtColor != null)
         {
@@ -151,16 +157,24 @@ public class HomeView : BaseView
         }
         
         lsHatItems[indexHat].OnClick();
-
-        if (indexSkin < 0)
+        if (isStart)
         {
-            //indexSkin = 0;            
-            imgHat.gameObject.SetActive(true);
+            if (indexSkin < 0)
+            {
+                //indexSkin = 0;            
+                imgHat.gameObject.SetActive(true);
+            }
+            else
+            {
+                OnBtnClick(2);
+                lsSkinItems[indexSkin].OnClick();
+            }
         }
         else
         {
-            OnBtnClick(2);
-            lsSkinItems[indexSkin].OnClick();
+            isStart = true;
+            OnBtnClick(0);
+            lsColorItems[indexColor].OnClick();
         }
         
         lsPetItems[indexPet].OnClick();
@@ -176,24 +190,22 @@ public class HomeView : BaseView
             inpName.text = "Player";
         }    
         DataAPIManager.Instance.SetName(inpName.text);
-        //if (curIndexBtn == 0)
-        //{
+        if (curIndexBtn == 0)
+        {
             DataAPIManager.Instance.SetColor(indexColor);
-        //    DataAPIManager.Instance.SetSkin(-1);
-        //}       
-        //else
-        //{
-        //    DataAPIManager.Instance.SetColor(-1);
+            DataAPIManager.Instance.SetSkin(-1);
+        }
+        else
+        {
+            DataAPIManager.Instance.SetColor(-1);
             DataAPIManager.Instance.SetSkin(indexSkin);
-        //}
+        }
         DataAPIManager.Instance.SetHat(indexHat);       
         DataAPIManager.Instance.SetPet(indexPet);
-        AdManager.instance.DisplayInterstitialAD(() =>
-        {
+
             Debug.LogError("gameplay view");
             // Gameplay view
             ViewManager.Instance.SwitchView(ViewIndex.GameplayView);
-        });
         
     }
 
@@ -214,6 +226,7 @@ public class HomeView : BaseView
         if (index > 1)
         {
             AdManager.instance.DisplayInterstitialAD();
+            AdManager.instance.RequestInterstitial();
         }
         switch (index)
         {
@@ -222,6 +235,10 @@ public class HomeView : BaseView
                 imgChar.sprite = defaultSpriteChar;
                 imgHat.gameObject.SetActive(true);
                 imgCharSkin.gameObject.SetActive(false);
+                if (indexColor < 0)
+                {
+                    indexColor = 0;
+                }
                 indexSkin = -1;
                 OnSelectItem(0, 1);
                 break;
@@ -229,7 +246,12 @@ public class HomeView : BaseView
                 imgCharSkin.gameObject.SetActive(true);
                 imgChar.gameObject.SetActive(false);
                 imgHat.gameObject.SetActive(false);
+                if (indexSkin < 0)
+                {
+                    indexSkin = 0;
+                }
                 indexColor = -1;
+                OnSelectItem(2, 1);
                 break;
         }
     }

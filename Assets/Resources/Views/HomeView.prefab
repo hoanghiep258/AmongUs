@@ -3188,7 +3188,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 240, y: 240}
+  m_CellSize: {x: 240, y: 220}
   m_Spacing: {x: 45, y: 50}
   m_Constraint: 2
   m_ConstraintCount: 3
@@ -7244,7 +7244,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 240, y: 240}
+  m_CellSize: {x: 240, y: 220}
   m_Spacing: {x: 45, y: 50}
   m_Constraint: 2
   m_ConstraintCount: 3
@@ -16290,7 +16290,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 240, y: 240}
+  m_CellSize: {x: 240, y: 220}
   m_Spacing: {x: 45, y: 50}
   m_Constraint: 2
   m_ConstraintCount: 3
@@ -17488,6 +17488,7 @@ MonoBehaviour:
   - {fileID: 9038720584730737103}
   rectChar: {fileID: 8856954441953535467}
   rectShop: {fileID: 8559186984857678054}
+  rectCoin: {fileID: 7569251481864602508}
   lsGridLayoutGroups:
   - {fileID: 9174321498842820383}
   - {fileID: 2258868188130319755}

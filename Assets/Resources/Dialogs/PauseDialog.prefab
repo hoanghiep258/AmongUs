@@ -1610,6 +1610,7 @@ MonoBehaviour:
   spriteDefaultChar: {fileID: -2690959552950769888, guid: cae7c1f18f7ed5a468e5634631af747e,
     type: 3}
   transPanel: {fileID: 5120357539763291814}
+  btnPause: {fileID: 1066999645246976332}
 --- !u!1 &8216560913803565521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,7 +1855,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1066999645246976332}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3616534259487911604}
+        m_MethodName: OnMute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9207744185654972571
 GameObject:
   m_ObjectHideFlags: 0
