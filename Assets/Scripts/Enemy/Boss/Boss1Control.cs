@@ -24,6 +24,10 @@ public class Boss1Control : EnemyControl
     public RuntimeAnimatorController defaultAnimator;
 
     public List<AnimatorOverrideController> lsSkinAnimator;
+
+    public AudioSource bossAudioSource;
+
+    public List<int> lsBossDame = new List<int>();
     public override void OnSetup(object dataInit, int maxHP)
     {
         base.OnSetup(dataInit, maxHP);        
@@ -84,7 +88,7 @@ public class Boss1Control : EnemyControl
 
     public void OnEndAttack()
     {        
-        characterHealth.OnDamage(5);
+        characterHealth.OnDamage(lsBossDame[indexBoss]);
         goHand.SetActive(false);
         agent.maxSpeed = speed;
         GotoState(walkState);        
@@ -96,9 +100,18 @@ public class Boss1Control : EnemyControl
         bullet.position = trans.position;
         Vector3 dir = playerTrans.position - bullet.position;
         dir.Normalize();
-        bullet.up = dir;
-
-        bullet.GetComponent<BulletEnemy>().Setup(dir, 20);
+        
+        if (indexBoss < 2)
+        {
+            bullet.up = dir;
+            bullet.GetComponent<BulletEnemy>().Setup(dir, 20);
+        }
+        else
+        {
+            bullet.SetParent(trans);
+            bullet.position = Vector3.zero;
+            bullet.GetComponent<Lazer>().Setup(goHand.transform.position, 20);
+        }
     }
 
     public override void Ondamage(int damage)

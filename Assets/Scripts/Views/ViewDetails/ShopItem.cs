@@ -74,7 +74,8 @@ public class ShopItem : MonoBehaviour
             AdManager.instance.DisplayRewardAD(() =>
             {
                 UnlockItem();
-            });            
+            });
+            AdManager.instance.RequestVideoAd();            
         }
     }
 
@@ -97,7 +98,7 @@ public class ShopItem : MonoBehaviour
         }
         HomeView homeView = (HomeView)ViewManager.Instance.currentView;
         homeView.OnSelectItem(indexItem, indexOfList);
-
+        isBought = true;
         goIsSelected.SetActive(true);
         goLock.SetActive(false);
     }

@@ -15,6 +15,7 @@ public class B1_FSM_DeadState : FSMState
         timerCount = 0;
         parent.dataBinding.Dead = true;
         parent.GetComponent<CircleCollider2D>().enabled = false;
+        SoundManager.instance.PlaySound(SoundIndex.Boss_kill);
         base.OnEnter();
     }
     public override void OnUpdate()

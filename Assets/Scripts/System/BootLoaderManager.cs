@@ -7,6 +7,11 @@ public class BootLoaderManager : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
+#if UNITY_EDITOR
+        Debug.unityLogger.logEnabled = true;
+#else
+  Debug.logger.logEnabled = false;
+#endif
         DontDestroyOnLoad(gameObject);
         yield return new WaitForSeconds(0.5f);
         ConfigManager.Instance.InitConfig(()=> {
@@ -18,7 +23,10 @@ public class BootLoaderManager : MonoBehaviour
                     {
                         LoadSceneManager.Instance.OnLoadScene("Buffer", (obj) =>
                         {
-                            AdManager.instance.DisplayBanner();
+                            if (UnityEngine.iOS.Device.generation.ToString().Contains("iPad"))
+                            {
+                                Camera.main.orthographicSize = 7;
+                            }                            
                             ViewManager.Instance.SwitchView(ViewIndex.HomeView);
                         });
                     });

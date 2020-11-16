@@ -42,20 +42,23 @@ public class PlayerControl : MonoBehaviour
             spriteChar.sprite = defaultSpriteChar;
             spriteChar.color = lsColors[indexColor];
             transform.GetComponent<CharacterDataBinding>().animator.runtimeAnimatorController = defaultAnimator;
+            spriteHat.gameObject.SetActive(true);
         }
         else
         {
             int indexSkin = DataAPIManager.Instance.GetSkin();
-            indexSkin = 0;
+            //indexSkin = 0;
             spriteChar.sprite = lsSkins[indexSkin];
             transform.GetComponent<CharacterDataBinding>().animator.runtimeAnimatorController = lsSkinAnimator[indexSkin];
+            spriteHat.gameObject.SetActive(false);
         }
 
         GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
         GetComponent<CharacterInput>().joyStick = gameplayView.joyStick;
         GetComponent<CharacterInput>().variableJoystick = gameplayView.variableJoystick;
-        GetComponent<CharacterHealth>().Setup(20);
+        GetComponent<CharacterHealth>().Setup(20);        
         GetComponent<CharacterDataBinding>().Speed = 0;
+        GetComponent<WeaponControl>().Setup();
     }
 
 }

@@ -34,7 +34,7 @@ public class GameOverDialog : BaseDialog
 
         // Get Name
         txtName.text = DataAPIManager.Instance.GetName();
-        int indexSkin = DataAPIManager.Instance.GetSkin();
+        int indexSkin = DataAPIManager.Instance.GetSkin();        
         if (indexSkin < 0)
         {
             imgChar.sprite = spriteDefaultChar;
@@ -55,10 +55,17 @@ public class GameOverDialog : BaseDialog
     public void OnGotoHome()
     {
         Time.timeScale = 1;
+        SoundManager.instance.PlaySound(SoundIndex.Click);
         HubControl.instance.gameObject.SetActive(true);
         MissionControl.instance.player.gameObject.SetActive(false);
+        if (MissionControl.instance.isBossTime)
+        {
+            MissionControl.instance.ClearAllEnemy();
+            HubControl.instance.DeleteAllHub();
+        }
         AdManager.instance.DisplayInterstitialAD();
-        
+        AdManager.instance.RequestInterstitial();
+
         ViewManager.Instance.SwitchView(ViewIndex.HomeView);
         DialogManager.Instance.HideDialog(this);
 

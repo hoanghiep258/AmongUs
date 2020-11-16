@@ -13,10 +13,11 @@ public class AdManager : MonoBehaviour
     public string video_ID = "ca-app-pub-3940256099942544/1712485313";
     private BannerView bannerAD;
     private InterstitialAd interstitialAd;
-    private RewardBasedVideoAd rewardVideoAd;
+    private RewardedAd rewardVideoAd;
 
     private Action interstitalActionCallback;
     private Action videoActionCallback;
+    private bool isStart = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,6 +26,20 @@ public class AdManager : MonoBehaviour
         RequestBanner();
         RequestInterstitial();
         RequestVideoAd();
+    }
+
+    IEnumerator Start()
+    {
+        int count = PlayerPrefs.GetInt("CountStart", 0);
+        if (count > 0)
+        {
+            DisplayInterstitialAD();
+            RequestInterstitial();
+            count++;
+            PlayerPrefs.SetInt("CountStart", count);
+        }
+        yield return new WaitForSecondsRealtime(20);
+        isStart = true;
     }
 
     private void OnEnable()
@@ -47,6 +62,19 @@ public class AdManager : MonoBehaviour
         
     }
 
+    private AdRequest CreateAdRequest()
+    {
+        return new AdRequest.Builder()
+            .AddTestDevice(AdRequest.TestDeviceSimulator)
+            .AddTestDevice("0123456789ABCDEF0123456789ABCDEF")
+            .AddKeyword("game")
+            .SetGender(Gender.Male)
+            .SetBirthday(new DateTime(1985, 1, 1))
+            .TagForChildDirectedTreatment(false)
+            .AddExtra("color_bg", "9B30FF")
+            .Build();
+    }
+
     private void RequestBanner()
     {
         // test
@@ -59,14 +87,13 @@ public class AdManager : MonoBehaviour
         //AdRequest adRequest = new AdRequest.Builder().Build();        
 
         // test
-        AdRequest adRequest = new AdRequest.Builder()
-            .AddTestDevice("2077ef9a63d2b398840261c8221a0c9b")
+        AdRequest adRequest = new AdRequest.Builder()            
             .Build();
 
-        bannerAD.LoadAd(adRequest);
+        bannerAD.LoadAd(CreateAdRequest());
     }
 
-    private void RequestInterstitial()
+    public void RequestInterstitial()
     {
         // test
         //string interstitial_ID = "ca-app-pub-3940256099942544/4411468910";
@@ -76,33 +103,33 @@ public class AdManager : MonoBehaviour
         Debug.LogError("RequestInterstitial");
         // real
         //AdRequest adRequest = new AdRequest.Builder().Build();
-       
+        this.interstitialAd.OnAdClosed -= this.HandleOnInterstitialAdClosed;
+        this.interstitialAd.OnAdClosed += this.HandleOnInterstitialAdClosed;
         //test
-       AdRequest adRequest = new AdRequest.Builder()
-           .AddTestDevice("2077ef9a63d2b398840261c8221a0c9b")
+        AdRequest adRequest = new AdRequest.Builder()           
            .Build();
 
-        interstitialAd.LoadAd(adRequest);
+        interstitialAd.LoadAd(CreateAdRequest());
     }
 
 
-    private void RequestVideoAd()
+    public void RequestVideoAd()
     {
         // test
         //string video_ID = "ca-app-pub-3940256099942544/1712485313";
         // real
-        //string video_ID = "ca-app-pub-5366914889955115/7974704110";
-        rewardVideoAd = RewardBasedVideoAd.Instance;
-      
+        //string video_ID = "ca-app-pub-5366914889955115/7974704110";        
+        this.rewardVideoAd = new RewardedAd(video_ID);
         // real
         //AdRequest adRequest = new AdRequest.Builder().Build();
 
         //test
-        AdRequest adRequest = new AdRequest.Builder()
-           .AddTestDevice("2077ef9a63d2b398840261c8221a0c9b")
+        this.rewardVideoAd.OnUserEarnedReward -= HandleUserEarnedReward;
+        this.rewardVideoAd.OnUserEarnedReward += HandleUserEarnedReward;
+        AdRequest adRequest = new AdRequest.Builder()           
            .Build();
-
-        rewardVideoAd.LoadAd(adRequest, video_ID);
+       
+        rewardVideoAd.LoadAd(adRequest);
     }
 
     public void DisplayBanner()
@@ -110,17 +137,31 @@ public class AdManager : MonoBehaviour
         bannerAD.Show();
     }
 
+    public void HideBanner()
+    {
+        bannerAD.Hide();
+    }
+
     public void DisplayInterstitialAD(Action callback = null)
     {
         interstitalActionCallback = null;
-        Debug.LogError("DisplayInterstitialAD");
+
         if (interstitialAd.IsLoaded())
         {
+            Debug.LogError("DisplayInterstitialAD");
             if (callback != null)
             {
                 interstitalActionCallback = callback;
             }
             interstitialAd.Show();
+        }
+        else
+        {
+            
+            if (callback != null)
+            {
+                callback();
+            }
         }
     }
 
@@ -141,7 +182,7 @@ public class AdManager : MonoBehaviour
 
     public void HandleOnAdLoaded(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdLoaded event received");
+         Debug.LogError("HandleAdLoaded event received");
         DisplayBanner();
     }
 
@@ -152,17 +193,17 @@ public class AdManager : MonoBehaviour
 
     public void HandleOnAdOpened(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdOpened event received");
+         Debug.LogError("HandleAdOpened event received");
     }
 
     public void HandleOnAdClosed(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdClosed event received");
+         Debug.LogError("HandleAdClosed event received");
     }
 
     public void HandleOnAdLeavingApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdLeavingApplication event received");
+         Debug.LogError("HandleAdLeavingApplication event received");
     }
 
     private void HandleBannerADEvents(bool subcribe)
@@ -201,35 +242,32 @@ public class AdManager : MonoBehaviour
 
     public void HandleOnInterstitialAdLoaded(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdLoaded event received");
+         Debug.LogError("HandleAdLoaded event received");
         DisplayInterstitialAD();
     }
 
     public void HandleOnInterstitialAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        Debug.LogError("HandleOnInterstitialAd Failed To Load");
-        RequestInterstitial();
+        Debug.LogError("HandleOnInterstitialAd Failed To Load");        
     }
 
     public void HandleOnInterstitialAdOpened(object sender, EventArgs args)
     {
-        RequestInterstitial();
-        MonoBehaviour.print("HandleAdOpened event received");
+         Debug.LogError("HandleAdOpened event received");
     }
 
     public void HandleOnInterstitialAdClosed(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdClosed event received");
-        RequestInterstitial();
+         Debug.LogError("HandleAdClosed event received");
         if (interstitalActionCallback != null)
         {
             interstitalActionCallback();            
-        }
+        }        
     }
 
     public void HandleOnInterstitialAdLeavingApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdLeavingApplication event received");
+         Debug.LogError("HandleAdLeavingApplication event received");
     }
 
     private void HandleInterstitialADEvents(bool subcribe)
@@ -268,26 +306,24 @@ public class AdManager : MonoBehaviour
 
     public void HandleOnVideoRewardAdLoaded(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdLoaded event received");
+         Debug.LogError("HandleAdLoaded event received");
         DisplayRewardAD();
         
     }
 
     public void HandleOnVideoRewardAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        RequestVideoAd();
+        
     }
 
     public void HandleOnVideoRewardAdOpened(object sender, EventArgs args)
-    {
-        RequestVideoAd();
-        MonoBehaviour.print("HandleAdOpened event received");
+    {        
+         Debug.LogError("HandleAdOpened event received");
     }
 
     public void HandleOnVideoRewardAdClosed(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdClosed event received");
-        RequestVideoAd();
+         Debug.LogError("HandleAdClosed event received");        
         if (videoActionCallback != null)
         {
             videoActionCallback();
@@ -296,46 +332,111 @@ public class AdManager : MonoBehaviour
 
     public void HandleOnVideoRewardAdLeavingApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdLeavingApplication event received");
+         Debug.LogError("HandleAdLeavingApplication event received");
        
     }
 
+    public void HandleRewardedAdLoaded(object sender, EventArgs args)
+    {
+         Debug.LogError("HandleRewardedAdLoaded event received");
+    }
+
+    public void HandleRewardedAdFailedToLoad(object sender, AdErrorEventArgs args)
+    {
+         Debug.LogError(
+            "HandleRewardedAdFailedToLoad event received with message: "
+                             + args.Message);
+    }
+
+    public void HandleRewardedAdOpening(object sender, EventArgs args)
+    {
+         Debug.LogError("HandleRewardedAdOpening event received");
+    }
+
+    public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
+    {
+         Debug.LogError(
+            "HandleRewardedAdFailedToShow event received with message: "
+                             + args.Message);
+    }
+
+    public void HandleRewardedAdClosed(object sender, EventArgs args)
+    {
+        Debug.LogError("HandleRewardedAdClosed event received");
+    }
+
+    public void HandleUserEarnedReward(object sender, Reward args)
+    {
+        string type = args.Type;
+        double amount = args.Amount;
+        Debug.LogError(
+            "HandleRewardedAdRewarded event received for "
+                        + amount.ToString() + " " + type);
+        if (videoActionCallback != null)
+        {
+            videoActionCallback();
+            videoActionCallback = null;
+        }
+    }
     private void HandleRewardADEvents(bool subcribe)
     {
         if (subcribe)
         {
+
             // Called when an ad request has successfully loaded.
-            this.rewardVideoAd.OnAdLoaded += this.HandleOnVideoRewardAdLoaded;
+            this.rewardVideoAd.OnAdLoaded += HandleRewardedAdLoaded;
             // Called when an ad request failed to load.
-            this.rewardVideoAd.OnAdFailedToLoad += this.HandleOnVideoRewardAdFailedToLoad;
-            // Called when an ad is clicked.
-            this.rewardVideoAd.OnAdOpening += this.HandleOnVideoRewardAdOpened;
-            // Called when the user returned from the app after an ad click.
-            this.rewardVideoAd.OnAdClosed += this.HandleOnVideoRewardAdClosed;
-            // Called when the ad click caused the user to leave the application.
-            this.rewardVideoAd.OnAdLeavingApplication += this.HandleOnVideoRewardAdLeavingApplication;
+            this.rewardVideoAd.OnAdFailedToLoad += HandleRewardedAdFailedToLoad;
+            // Called when an ad is shown.
+            this.rewardVideoAd.OnAdOpening += HandleRewardedAdOpening;
+            // Called when an ad request failed to show.
+            this.rewardVideoAd.OnAdFailedToShow += HandleRewardedAdFailedToShow;
+            // Called when the user should be rewarded for interacting with the ad.
+            this.rewardVideoAd.OnUserEarnedReward += HandleUserEarnedReward;
+            // Called when the ad is closed.
+            this.rewardVideoAd.OnAdClosed += HandleRewardedAdClosed;
         }
         else
         {
             // Called when an ad request has successfully loaded.
-            this.rewardVideoAd.OnAdLoaded -= this.HandleOnVideoRewardAdLoaded;
+            this.rewardVideoAd.OnAdLoaded -= HandleRewardedAdLoaded;
             // Called when an ad request failed to load.
-            this.rewardVideoAd.OnAdFailedToLoad -= this.HandleOnVideoRewardAdFailedToLoad;
-            // Called when an ad is clicked.
-            this.rewardVideoAd.OnAdOpening -= this.HandleOnVideoRewardAdOpened;
-            // Called when the user returned from the app after an ad click.
-            this.rewardVideoAd.OnAdClosed -= this.HandleOnVideoRewardAdClosed;
-            // Called when the ad click caused the user to leave the application.
-            this.rewardVideoAd.OnAdLeavingApplication -= this.HandleOnVideoRewardAdLeavingApplication;
+            this.rewardVideoAd.OnAdFailedToLoad -= HandleRewardedAdFailedToLoad;
+            // Called when an ad is shown.
+            this.rewardVideoAd.OnAdOpening -= HandleRewardedAdOpening;
+            // Called when an ad request failed to show.
+            this.rewardVideoAd.OnAdFailedToShow -= HandleRewardedAdFailedToShow;
+            // Called when the user should be rewarded for interacting with the ad.
+            this.rewardVideoAd.OnUserEarnedReward -= HandleUserEarnedReward;
+            // Called when the ad is closed.
+            this.rewardVideoAd.OnAdClosed -= HandleRewardedAdClosed;
         }
 
     }
     #endregion
     private void OnApplicationPause(bool pause)
     {
-        if (pause)
+        if (pause && isStart)
         {
-            DisplayInterstitialAD();
+            int count = PlayerPrefs.GetInt("CountStart", 0);
+            if (count > 0)
+            {
+                count++;
+                PlayerPrefs.SetInt("CountStart", count);
+                DisplayInterstitialAD();
+                RequestInterstitial();
+            }  
+            else
+            {
+                count++;
+                PlayerPrefs.SetInt("CountStart", count);
+            }
         }
+    }
+    private void OnApplicationQuit()
+    {
+        int count = PlayerPrefs.GetInt("CountStart", 0);
+        count++;
+        PlayerPrefs.SetInt("CountStart", count);
     }
 }

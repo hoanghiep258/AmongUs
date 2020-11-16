@@ -38,6 +38,23 @@ public class WeaponControl : MonoBehaviour
         }
       
     }
+
+    public void Setup()
+    {
+        for (int i = 0; i < lsGun.Count; i++)
+        {
+            lsGun[i].SetupData(new GunData { amoutAmo = lsWeaponAmo[i] });
+            lsGun[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void HideAllGun()
+    {
+        for (int i = 0; i < lsGun.Count; i++)
+        {            
+            lsGun[i].gameObject.SetActive(false);
+        }
+    }
     public void OnChangeGun(int indexGun)
     {
         this.indexGun = indexGun;      

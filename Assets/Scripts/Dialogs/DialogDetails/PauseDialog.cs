@@ -17,14 +17,24 @@ public class PauseDialog : BaseDialog
     private Slider sliderHP;
 
     [SerializeField]
+    private List<Sprite> lsSkin = new List<Sprite>();
+    [SerializeField]
     private Image imgChar;
+    [SerializeField]
+    private Sprite spriteDefaultChar;
 
     private PauseDialogParam pauseDialogParam;
 
     [SerializeField]
     private Transform transPanel;
+
+    [SerializeField]
+    private Image btnPause;
+    private bool isMute;
+
     public override void OnSetUp(DialogParam param = null)
     {
+        isMute = false;
         transPanel.localScale = Vector3.zero;
         pauseDialogParam = (PauseDialogParam)param;
         txtKill.text = pauseDialogParam.valueKill.ToString() + " IMPOSTOR";
@@ -36,6 +46,17 @@ public class PauseDialog : BaseDialog
         {
             Time.timeScale = 0;
         });
+
+        int indexSkin = DataAPIManager.Instance.GetSkin();
+        if (indexSkin < 0)
+        {
+            imgChar.sprite = spriteDefaultChar;
+        }
+        else
+        {
+            imgChar.sprite = lsSkin[indexSkin];
+        }
+
         base.OnSetUp(param);
     }
 
@@ -54,6 +75,7 @@ public class PauseDialog : BaseDialog
     public void OnGotoHome()
     {
         AdManager.instance.DisplayInterstitialAD();
+        AdManager.instance.RequestInterstitial();
         MissionControl.instance.ClearAllEnemy();
         HubControl.instance.DeleteAllHub();
         MissionControl.instance.player.gameObject.SetActive(false);
@@ -75,18 +97,38 @@ public class PauseDialog : BaseDialog
         DataAPIManager.Instance.AddCoin(pauseDialogParam.valueCoin);
         HubControl.instance.gameObject.SetActive(true);
         Time.timeScale = 1;
-        AdManager.instance.DisplayInterstitialAD(()=>
+        AdManager.instance.DisplayInterstitialAD(() =>
         {
-           
+            // Restart game
+            GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
+            gameplayView.OnRestartGame();
+            DialogManager.Instance.HideDialog(this);
         });
-        // Restart game
-        GameplayView gameplayView = (GameplayView)ViewManager.Instance.currentView;
-        gameplayView.OnRestartGame();
-        DialogManager.Instance.HideDialog(this);
+        AdManager.instance.RequestInterstitial();
+        
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
+    }
+
+    public void OnMute()
+    {
+        isMute = !isMute;
+        if (isMute)
+        {
+            Color color = Color.white;
+            color.a = 0.3f;
+            btnPause.color = color;
+            SoundManager.instance.Mute();
+        }
+        else
+        {
+            Color color = Color.white;
+            color.a = 1;
+            btnPause.color = color;
+            SoundManager.instance.Unmute();
+        }
     }
 }

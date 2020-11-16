@@ -7,7 +7,7 @@ public class MissionControl : MonoBehaviour
     public static MissionControl instance;
     public MissionData dataModel;
 
-    private const int valueAppearBoss = 3;
+    private const int valueAppearBoss = 100;
     private const float timerCreateEnemy = 1;
 
     public PlayerControl player;
@@ -17,6 +17,8 @@ public class MissionControl : MonoBehaviour
     public KdTree<Transform> enemyKdTree = new KdTree<Transform>();
     public int totalEnemyDead = 0;
     public int curCoin;
+    public List<int> lsHPBoss = new List<int>();
+    public bool isBossTime;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,7 +28,8 @@ public class MissionControl : MonoBehaviour
     }
 
     public void InitMission(bool isColor = false)
-    {        
+    {
+        isBossTime = false;
         lsEnemyControls.Clear();
         enemyKdTree.Clear();        
         player.OnSetup(isColor);
@@ -113,13 +116,14 @@ public class MissionControl : MonoBehaviour
 
     public void ShowBoss()
     {
+        isBossTime = true;
         // Show Boss        
-        int indexBoss = Random.Range(0, 2);        
+        int indexBoss = Random.Range(0, 3);        
         GameObject goBoss = Instantiate(Resources.Load("Enemy/Boss1", typeof(GameObject))) as GameObject;
         goBoss.transform.position = ConfigScene.instance.posBoss.position;
         EnemyControl enemyControl = goBoss.GetComponent<EnemyControl>();
         enemyControl.OnEnemyDead += OnBossDeadCallback;
-        enemyControl.OnSetup(null, 3 + indexBoss * 2);
+        enemyControl.OnSetup(null, lsHPBoss[indexBoss]);
         enemyControl.GetComponent<Boss1Control>().OnSetupBoss(indexBoss);
         lsEnemyControls.Add(enemyControl);
         enemyKdTree.Add(enemyControl.transform);
@@ -127,8 +131,9 @@ public class MissionControl : MonoBehaviour
 
     private void OnBossDeadCallback(EnemyControl enemy)
     {
-        dataModel.currentEnemy--;
-        dataModel.totalEnemyDie++;
+        //dataModel.currentEnemy--;
+        //dataModel.totalEnemyDie++;
+        isBossTime = false;
         totalEnemyDead++;
         OnUpdateEnemy(enemy);
         StartCoroutine("LoopCreateEnemy");

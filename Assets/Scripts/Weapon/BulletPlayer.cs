@@ -69,15 +69,43 @@ public class BulletPlayer : MonoBehaviour {
             if (!isAoe)
             {
                 Destroy(gameObject);
+                SoundManager.instance.PlaySound(SoundIndex.Enemy_kill);
             }  
             else
             {
+                SoundManager.instance.PlaySound(SoundIndex.Gernade);
                 isHit = true;
                 
             }
         }
-          
-        
+
+        if (hitInfo.collider.gameObject.CompareTag("Boss"))
+        {            
+            hitInfo.collider.gameObject.GetComponent<EnemyOnDamage>().ApplyDamage(1);
+            impact = Instantiate(enemy_impact);
+            if (impact != null)
+            {
+
+                // set vi tri va huong
+                impact.position = hitInfo.point;
+                impact.forward = hitInfo.normal;
+                //Quaternion q = Quaternion.Euler(90, 0, 0);
+                //impact.forward = q * (-transform.up);                
+            }
+            if (!isAoe)
+            {
+                Destroy(gameObject);
+                SoundManager.instance.PlaySound(SoundIndex.Enemy_kill);
+            }
+            else
+            {
+                SoundManager.instance.PlaySound(SoundIndex.Gernade);
+                //isHit = true;
+                hitInfo.collider.gameObject.GetComponent<EnemyOnDamage>().ApplyDamage(4);
+                Destroy(gameObject);
+            }
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D coll)
