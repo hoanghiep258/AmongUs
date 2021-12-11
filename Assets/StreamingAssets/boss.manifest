@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1569770934
+CRC: 4240158751
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: edb78b843b1b7f136b393da8ae4c4ea4
+    Hash: 6c66dfe367efd82c0d06f02880029712
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -13,5 +13,6 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/BundleAssets/bom_no.wav
 - Assets/BundleAssets/boss.wav
 Dependencies: []
