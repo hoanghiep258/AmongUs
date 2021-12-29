@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3636520281
+CRC: 103448835
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6323df3d345013a84cf74b117f7b10ac
+    Hash: ba9d0430b4c2a9094fac16208963a314
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -13,7 +13,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Sound Bundle/Whitty/Inst-overhead.mp3
-- Assets/Sound Bundle/Whitty/Inst-ballistic.mp3
-- Assets/Sound Bundle/Whitty/Inst-lo-fight.mp3
+- Assets/SoundBundle/Whitty/Inst-ballistic.mp3
+- Assets/SoundBundle/Whitty/Inst-overhead.mp3
+- Assets/SoundBundle/Whitty/Inst-lo-fight.mp3
 Dependencies: []

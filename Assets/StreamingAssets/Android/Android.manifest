@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3336643174
+CRC: 2143384504
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -12,13 +12,13 @@ AssetBundleManifest:
       Name: gacello
       Dependencies: {}
     Info_3:
-      Name: ruv
+      Name: huggywuggy
       Dependencies: {}
     Info_4:
-      Name: tricky
+      Name: ruv
       Dependencies: {}
     Info_5:
-      Name: huggywuggy
+      Name: tricky
       Dependencies: {}
     Info_6:
       Name: whitty
