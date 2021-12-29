@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 2880070553
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d7c19a20fa71ebecce2e6dcac93e78ba
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Sound Bundle/Cassette/Inst-city-funk.mp3
+- Assets/Sound Bundle/Cassette/Inst-soda-groove.mp3
+- Assets/Sound Bundle/Cassette/Inst-earworm.mp3
+- Assets/Sound Bundle/Cassette/Inst-machina.mp3
+- Assets/Sound Bundle/Cassette/Inst-ukiyo.mp3
+- Assets/Sound Bundle/Cassette/Inst-smoking.mp3
+Dependencies: []

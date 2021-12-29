@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 3038676182
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5831b2fd3d3b3caf517c19b4d2f65df2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Sound Bundle/Tricky/Inst-madness.mp3
+- Assets/Sound Bundle/Tricky/Inst-improbable-outset.mp3
+- Assets/Sound Bundle/Tricky/Inst-hellclown.mp3
+Dependencies: []
