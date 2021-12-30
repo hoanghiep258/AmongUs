@@ -1,28 +1,28 @@
 ManifestFileVersion: 0
-CRC: 4244624186
+CRC: 1190813002
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: boss
       Dependencies: {}
     Info_1:
-      Name: gacello
-      Dependencies: {}
-    Info_2:
       Name: huggywuggy
       Dependencies: {}
-    Info_3:
+    Info_2:
       Name: ruv
       Dependencies: {}
-    Info_4:
+    Info_3:
       Name: fivenightsfreddy
       Dependencies: {}
-    Info_5:
+    Info_4:
       Name: tricky
       Dependencies: {}
-    Info_6:
+    Info_5:
       Name: whitty
       Dependencies: {}
-    Info_7:
+    Info_6:
       Name: cassette
+      Dependencies: {}
+    Info_7:
+      Name: garcello
       Dependencies: {}
