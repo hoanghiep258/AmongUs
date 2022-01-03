@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1977576586
+CRC: 3088256500
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e19bd8f42d10fc1a65acf9e5b6a9fd59
+    Hash: d83f83b65d59c6dc5441f1e0d0371d1e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -14,6 +14,6 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/SoundBundle/FiveNight/Inst-slaughter.mp3
-- Assets/SoundBundle/FiveNight/Inst-firedmp3.mp3
+- Assets/SoundBundle/FiveNight/Inst-fired.mp3
 - Assets/SoundBundle/FiveNight/Inst-let-us-in.mp3
 Dependencies: []
