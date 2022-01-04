@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3198114091
+CRC: 80007665
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8e737ecd81022da58906633fc7dabac5
+    Hash: 0f8ba9e7749770883e90bc4a91c1b38e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -13,8 +13,8 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/SoundBundle/RUV/Inst_gospel.mp3
-- Assets/SoundBundle/RUV/Inst_zavodila.mp3
-- Assets/SoundBundle/RUV/Inst_worship.mp3
-- Assets/SoundBundle/RUV/Inst_parish.mp3
+- Assets/SoundBundle/RUV/Inst-worship.mp3
+- Assets/SoundBundle/RUV/Inst-parish.mp3
+- Assets/SoundBundle/RUV/Inst-gospel.mp3
+- Assets/SoundBundle/RUV/Inst-zavodila.mp3
 Dependencies: []
