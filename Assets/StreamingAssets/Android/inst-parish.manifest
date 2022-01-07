@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 3553566909
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 792e4e46ce989ca4519cf81dab20fbe0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SoundBundle/RUV/Inst-parish.mp3
+Dependencies: []

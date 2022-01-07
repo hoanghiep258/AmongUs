@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 230938127
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b32d6b84e44b1fb823ea3d9c3b08313d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SoundBundle/Crimson Carnival/Inst-maniacal.mp3
+Dependencies: []

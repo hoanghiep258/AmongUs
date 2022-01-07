@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 3982131370
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 24039bf421a697b10c51de5ec89228d9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SoundBundle/RUV/Inst-zavodila.mp3
+Dependencies: []

@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 293179917
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 35f1c387e5db58bcc96f09c4245acd31
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SoundBundle/Gacello/Inst-release.mp3
+Dependencies: []

@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 2342710530
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4d55ed7494059f4cf24f2b4e38b18684
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SoundBundle/RUV/Inst-gospel.mp3
+Dependencies: []

@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 347901544
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 65bec86a8c003e7b95da38c1989339b4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SoundBundle/Sunday Night Mouse/Inst-smile.mp3
+Dependencies: []

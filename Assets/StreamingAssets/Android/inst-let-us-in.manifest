@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 2181280605
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bdbb5d1e2115a4993af24c8680af990d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SoundBundle/FiveNight/Inst-let-us-in.mp3
+Dependencies: []
