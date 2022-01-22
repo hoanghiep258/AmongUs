@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 544810532
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e8776ccdd690dc946fa2fb33d1a34f81
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SoundBundle/Entity/Inst-godrays.mp3
+Dependencies: []

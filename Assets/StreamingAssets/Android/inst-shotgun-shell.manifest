@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 14635055
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e5c4b0816232c5788b698c76dc7e93b5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SoundBundle/Entity/Inst-shotgun-shell.mp3
+Dependencies: []
